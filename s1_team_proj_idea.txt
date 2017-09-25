@@ -1,0 +1,11 @@
+Team Members: Mark Kircher, Victor Lozoya, Alexander Kurian, Robert Dale, Christian McGovern 
+
+
+
+1) Mock database using created CSV txt files with a GUI interface similar to a real world application used by inspectors of the Organics department in the New Mexico Dept of Agriculture.
+
+
+2) Implement SHA-1 algorithm for a file which mixes up the data of the file and outputs a 160 bit (2^160) hash value. 
+
+
+3) A "Choose Your Own Adventure" game to pass time with.

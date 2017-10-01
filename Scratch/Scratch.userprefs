@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{3433D1C9-B2A4-491C-BE45-25A885E937FA}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Scratch/src/Game1.cs">
+    <Files>
+      <File FileName="Scratch/src/Game1.cs" Line="34" Column="12" />
+      <File FileName="Scratch/src/AnimatedSprite.cs" Line="22" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.ItemProperties.Scratch PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

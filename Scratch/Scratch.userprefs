@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{3433D1C9-B2A4-491C-BE45-25A885E937FA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Scratch/src/Game1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Scratch/src/AnimatedSprite.cs">
     <Files>
-      <File FileName="Scratch/src/Game1.cs" Line="34" Column="12" />
-      <File FileName="Scratch/src/AnimatedSprite.cs" Line="22" Column="4" />
+      <File FileName="Scratch/src/Game1.cs" Line="15" Column="20" />
+      <File FileName="Scratch/src/Player.cs" Line="12" Column="3" />
+      <File FileName="Scratch/src/AnimatedSprite.cs" Line="43" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

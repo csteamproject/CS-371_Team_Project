@@ -41,12 +41,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Game1.cs" />
     <Compile Include="src\AnimatedSprite.cs" />
+    <Compile Include="src\Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />
     <None Include="Icon.png" />
     <None Include="Content\sprite1.gif" />
     <None Include="Content\zombie_0.png" />
+    <None Include="Content\player.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />

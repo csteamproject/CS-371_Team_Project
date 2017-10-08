@@ -13,7 +13,9 @@ namespace Scratch {
 		private AnimatedSprite zombie;
 		private Player player;
 
-		//KeyboardState keys;
+		static int squaresAcross = 32;
+		static int squaresDown = 32;
+		TileMap myMap = new TileMap(squaresDown, squaresAcross);
 
 		public Game1() {
 			graphics = new GraphicsDeviceManager(this);
@@ -30,6 +32,7 @@ namespace Scratch {
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
 			Texture2D playerTexture = Content.Load<Texture2D>("player");
+			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite");
 			zombie = new AnimatedSprite(zombieTexture, 8, 36);
 			player = new Player(playerTexture, 4, 4);
 		}
@@ -38,18 +41,18 @@ namespace Scratch {
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
 			// TODO: Add your update logic here
-
 			if (IsActive) {
 				zombie.Update(gameTime);
 				player.Update(gameTime);
 				base.Update(gameTime);
+				myMap.Update(gameTime);
 			}
 		}
 
 		protected override void Draw( GameTime gameTime ) {
 			graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
-
 			//TODO: Add your drawing code here
+			myMap.Draw(spriteBatch);
 			zombie.Draw(spriteBatch, new Vector2(50,50));
 			player.Draw(spriteBatch, player.pos);
 			base.Draw(gameTime);

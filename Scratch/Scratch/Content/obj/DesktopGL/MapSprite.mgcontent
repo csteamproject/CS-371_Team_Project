@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/player.png</SourceFile>
-  <SourceTime>2017-10-06T15:51:55-06:00</SourceTime>
-  <DestFile>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/bin/Windows/player.xnb</DestFile>
-  <DestTime>2017-10-07T18:39:47-06:00</DestTime>
+  <SourceFile>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/MapSprite.png</SourceFile>
+  <SourceTime>2017-10-07T13:09:21-06:00</SourceTime>
+  <DestFile>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/bin/DesktopGL/MapSprite.xnb</DestFile>
+  <DestTime>2017-10-07T18:40:28-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-09-27T10:57:48-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

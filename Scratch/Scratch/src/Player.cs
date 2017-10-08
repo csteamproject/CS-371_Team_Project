@@ -39,7 +39,5 @@ namespace Scratch {
 			pos = Vector2.Add(pos, Vector2.Multiply(vel, (float)gameTime.ElapsedGameTime.TotalSeconds));
 			base.Update(gameTime);
 		}
-
-
 	}
 }

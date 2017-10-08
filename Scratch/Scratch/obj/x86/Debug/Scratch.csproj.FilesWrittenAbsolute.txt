@@ -39,3 +39,4 @@
 /home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/obj/x86/Debug/Scratch.exe
 /home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/obj/x86/Debug/Scratch.pdb
 /home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/MonoGame.Framework.dll
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/MapSprite.xnb

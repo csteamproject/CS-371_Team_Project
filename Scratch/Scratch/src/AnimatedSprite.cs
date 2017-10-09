@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * AnimatedSprite.cs
+ * The purpose of this class is to build a standard model for any sprite
+ * that is either a single texture or an animated sprite sheet. Rows and 
+ * columns can be specified for spritesheets using public variables row
+ * and column.
+*/
+
+using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
@@ -8,10 +16,12 @@ namespace Scratch {
 		public Texture2D Texture { get; set; }
 		public int Rows { get; set; }
 		public int Columns { get; set; }
+		public int row { get; set; }
+		public int column { get; set; }
 		private int currentFrame;
 		private int totalFrames;
 		int timeSinceLastFrame = 0;
-		int millisecondsPerFrame = 50;
+		int millisecondsPerFrame = 150;
 
 		public AnimatedSprite(Texture2D texture, int rows, int columns) {
 			Texture = texture;
@@ -34,8 +44,9 @@ namespace Scratch {
 		public void Draw( SpriteBatch spriteBatch, Vector2 location ) {
 			int width = Texture.Width / Columns;
 			int height = Texture.Height / Rows;
-			int row = (int)((float)currentFrame / (float)Columns);
-			int column = currentFrame % Columns;
+			//row = (int)((float)currentFrame / (float)Columns);
+			if (column != 0)
+				column = currentFrame % Columns;
 
 			Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
 			Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Player.cs
+ * The purpose of this class is to generate attributes for the player in the game.
+ * Player.cs inherits from AnimatedSprite.cs to build a working sprite animation.
+ * This class also sets up the keyboard functionality for W, A, S, and D keys.
+*/
+
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -19,16 +26,24 @@ namespace Scratch {
 		}
 
 		public new void Update( GameTime gameTime ) {
+			KeyboardState keys = Keyboard.GetState();;
 
+			this.column = 1;
 			float? angle = null;
-			if (Keyboard.GetState().IsKeyDown(Keys.D)) {
+			if (keys.IsKeyDown(Keys.D)) {
 				angle = 0;
-			} else if (Keyboard.GetState().IsKeyDown(Keys.A)) {
+				this.row = 2;
+			} else if (keys.IsKeyDown(Keys.A)) {
 				angle = MathHelper.Pi;
-			} else if (Keyboard.GetState().IsKeyDown(Keys.W)) {
+				this.row = 1;
+			} else if (keys.IsKeyDown(Keys.W)) {
 				angle = 3.0f * MathHelper.PiOver2;
-			} else if (Keyboard.GetState().IsKeyDown(Keys.S)) {
+				this.row = 3;
+			} else if (keys.IsKeyDown(Keys.S)) {
+				this.row = 0;
 				angle = MathHelper.PiOver2;
+			} else {
+				this.column = 0;
 			}
 
 			if (angle.HasValue)

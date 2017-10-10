@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -10,7 +9,7 @@ namespace Scratch {
 
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-		private AnimatedSprite zombie;
+		private Enemy zombie;
 		private Player player;
 
 		static int squaresAcross = 32;
@@ -33,7 +32,7 @@ namespace Scratch {
 			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
 			Texture2D playerTexture = Content.Load<Texture2D>("player");
 			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite");
-			zombie = new AnimatedSprite(zombieTexture, 8, 36);
+			zombie = new Enemy(zombieTexture, 8, 36, 50, 5, 90);
 			player = new Player(playerTexture, 4, 4);
 		}
 

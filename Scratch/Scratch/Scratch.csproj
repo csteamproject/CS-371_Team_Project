@@ -46,6 +46,7 @@
     <Compile Include="src\Map\MapCell.cs" />
     <Compile Include="src\Map\Tile.cs" />
     <Compile Include="src\Map\TileMap.cs" />
+    <Compile Include="src\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

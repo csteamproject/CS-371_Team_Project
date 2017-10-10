@@ -14,7 +14,7 @@ namespace Scratch {
 	public class Player : AnimatedSprite {
 
 		private Vector2 vel;
-		public float spd = 80;
+		float spd { get; set; } = 100;
 		public Vector2 pos;
 
 		public Player( Texture2D texture, int row, int column ) : base(texture, row, column) {

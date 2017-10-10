@@ -21,7 +21,7 @@ namespace Scratch {
 		private int currentFrame;
 		private int totalFrames;
 		int timeSinceLastFrame = 0;
-		int millisecondsPerFrame = 150;
+		public int millisecondsPerFrame { get; set; }= 150;
 
 		public AnimatedSprite(Texture2D texture, int rows, int columns) {
 			Texture = texture;

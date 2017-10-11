@@ -34,6 +34,8 @@ namespace Scratch {
 			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite");
 			zombie = new Enemy(zombieTexture, 8, 36, 50, 5, 90);
 			player = new Player(playerTexture, 4, 4);
+			player.initialize();
+			zombie.initialize();
 		}
 
 		protected override void Update( GameTime gameTime ) {
@@ -41,8 +43,8 @@ namespace Scratch {
 				Exit();
 			// TODO: Add your update logic here
 			if (IsActive) {
-				zombie.Update(gameTime);
 				player.Update(gameTime);
+				zombie.Update(gameTime, player.pos);
 				base.Update(gameTime);
 				myMap.Update(gameTime);
 			}
@@ -52,7 +54,7 @@ namespace Scratch {
 			graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 			//TODO: Add your drawing code here
 			myMap.Draw(spriteBatch);
-			zombie.Draw(spriteBatch, new Vector2(50,50));
+			zombie.Draw(spriteBatch, zombie.ePos);
 			player.Draw(spriteBatch, player.pos);
 			base.Draw(gameTime);
 		}

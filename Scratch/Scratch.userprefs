@@ -1,10 +1,8 @@
 ﻿<Properties StartupConfiguration="{3433D1C9-B2A4-491C-BE45-25A885E937FA}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Scratch/src/Game1.cs">
     <Files>
-      <File FileName="Scratch/src/Game1.cs" Line="13" Column="25" />
-      <File FileName="Scratch/src/AnimatedSprite.cs" Line="49" Column="30" />
-      <File FileName="Scratch/src/Player.cs" Line="31" Column="4" />
-      <File FileName="Scratch/src/Enemy.cs" Line="10" Column="64" />
+      <File FileName="Scratch/src/Game1.cs" Line="51" Column="28" />
+      <File FileName="Scratch/src/NotificationWindow.cs" Line="12" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

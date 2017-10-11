@@ -4,9 +4,10 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/sprite1.gif</File>
-    <File>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/zombie_0.png</File>
-    <File>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/player.png</File>
-    <File>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/MapSprite.png</File>
+    <File>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/Sprite/sprite1.gif</File>
+    <File>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/Sprite/zombie_0.png</File>
+    <File>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/Sprite/player.png</File>
+    <File>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/Map/MapSprite.png</File>
+    <File>/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/Content/Fonts/defaultfont.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

@@ -11,6 +11,7 @@ namespace Scratch {
 		SpriteBatch spriteBatch;
 		private Enemy zombie;
 		private Player player;
+		private NotificationWindow nfw;
 
 		static int squaresAcross = 32;
 		static int squaresDown = 32;
@@ -29,9 +30,12 @@ namespace Scratch {
 		protected override void LoadContent() {
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
+			nfw = new NotificationWindow("message");
+			nfw.LoadContent(graphics, Content);
 			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
 			Texture2D playerTexture = Content.Load<Texture2D>("player");
 			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite");
+
 			zombie = new Enemy(zombieTexture, 8, 36, 50, 5, 90);
 			player = new Player(playerTexture, 4, 4);
 			player.initialize();
@@ -45,8 +49,8 @@ namespace Scratch {
 			if (IsActive) {
 				player.Update(gameTime);
 				zombie.Update(gameTime, player.pos);
-				base.Update(gameTime);
 				myMap.Update(gameTime);
+				base.Update(gameTime);
 			}
 		}
 
@@ -56,6 +60,7 @@ namespace Scratch {
 			myMap.Draw(spriteBatch);
 			zombie.Draw(spriteBatch, zombie.ePos);
 			player.Draw(spriteBatch, player.pos);
+			nfw.Draw(spriteBatch);
 			base.Draw(gameTime);
 		}
 	}

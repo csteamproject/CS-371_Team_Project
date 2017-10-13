@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>/home/vm3/Documents/projectfiles/cameramovement/CS-371_Team_Project/Scratch/Scratch/Content/sprite1.gif</SourceFile>
-  <SourceTime>2017-10-12T21:23:25-06:00</SourceTime>
-  <DestFile>/home/vm3/Documents/projectfiles/cameramovement/CS-371_Team_Project/Scratch/Scratch/Content/bin/DesktopGL/sprite1.xnb</DestFile>
-  <DestTime>2017-10-12T21:33:03-06:00</DestTime>
+  <SourceFile>C:/Users/Christian/Desktop/Google_Drive/Classcodefiles/NMSU-CS371/CS-371_Team_Project/Scratch/Scratch/Content/sprite1.gif</SourceFile>
+  <SourceTime>2017-10-13T15:04:22.1217104-06:00</SourceTime>
+  <DestFile>C:/Users/Christian/Desktop/Google_Drive/Classcodefiles/NMSU-CS371/CS-371_Team_Project/Scratch/Scratch/Content/bin/DesktopGL/sprite1.xnb</DestFile>
+  <DestTime>2017-10-13T15:19:05.2560824-06:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2017-10-02T19:27:09-06:00</ImporterTime>
+  <ImporterTime>2017-03-01T08:05:36-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2017-10-02T19:27:09-06:00</ProcessorTime>
+  <ProcessorTime>2017-03-01T08:05:36-07:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

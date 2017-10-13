@@ -4,7 +4,7 @@
       <File FileName="Scratch/src/Game1.cs" Line="13" Column="25" />
       <File FileName="Scratch/src/AnimatedSprite.cs" Line="49" Column="30" />
       <File FileName="Scratch/src/Player.cs" Line="31" Column="4" />
-      <File FileName="Scratch/src/Enemy.cs" Line="10" Column="64" />
+      <File FileName="Scratch/src/Enemy.cs" Line="10" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

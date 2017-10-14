@@ -20,3 +20,4 @@ C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Pr
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\obj\x86\Debug\Scratch.csproj.CoreCompileInputs.cache
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\obj\x86\Debug\Scratch.exe
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\obj\x86\Debug\Scratch.pdb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\MapSprite2.xnb

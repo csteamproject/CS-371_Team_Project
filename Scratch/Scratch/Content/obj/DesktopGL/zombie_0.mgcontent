@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Christian/Desktop/Google_Drive/Classcodefiles/NMSU-CS371/CS-371_Team_Project/Scratch/Scratch/Content/zombie_0.png</SourceFile>
-  <SourceTime>2017-10-13T15:04:22.1217104-06:00</SourceTime>
+  <SourceTime>2017-10-15T17:44:25.2957089-06:00</SourceTime>
   <DestFile>C:/Users/Christian/Desktop/Google_Drive/Classcodefiles/NMSU-CS371/CS-371_Team_Project/Scratch/Scratch/Content/bin/DesktopGL/zombie_0.xnb</DestFile>
-  <DestTime>2017-10-13T15:19:05.6225799-06:00</DestTime>
+  <DestTime>2017-10-15T17:46:25.0093633-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T08:05:36-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

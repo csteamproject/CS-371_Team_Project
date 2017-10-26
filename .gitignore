@@ -18,6 +18,9 @@
 *.tar.gz
 *.rar
 
+#User Content
+*.mgcontent
+
 # User Preferences
 *.userprefs
 

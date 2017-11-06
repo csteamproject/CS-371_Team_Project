@@ -41,14 +41,41 @@ namespace Scratch {
 
             /*
                 Tile IDs
-                1 = default
-                2 - 19 = slight color variations of default
 
+                0 = default
+                1 - 6 = row 1
+                10 - 19 = row 2
+                20 - 29 =  row 3
+                30 - 39 = row 4, dirt elevated things
+                40 - 49 = row 5, dirt elevated things (cont)
+                50 - 59 = row 6, big rocks
+                60 - 69 = row 7, big water rocks/ little rocks
+                70 - 79 = row 8, big elevation rocks with dirt on top
+                80 - 109 = row 9, 10, and 11, water
+                110 - 119 = row 12, grass
+                120 - 129 = row 13, bushes and top of trees
+                132- 133 = row 14, bottom of trees and tops of tippy top of big trees
+                140 - 149 = row 15, top of big trees
+                150 - 159 = row 16, bottom of big trees
             */
-          
-            // Rows[3].Columns[2].TileID = 1;
-           
 
+            //Tree
+            Rows[2].Columns[8].AddHeightTile(130);
+            Rows[6].Columns[8].AddHeightTile(140);
+            Rows[10].Columns[8].AddHeightTile(150);
+            //end Tree
+
+            //Dead tree
+            Rows[2].Columns[9].AddHeightTile(131);
+            Rows[6].Columns[9].AddHeightTile(141);
+            Rows[10].Columns[9].AddHeightTile(151);
+            //end Dead Tree
+            //Dead Tree
+            Rows[1].Columns[8].AddHeightTile(131);
+            Rows[5].Columns[8].AddHeightTile(141);
+            Rows[9].Columns[8].AddHeightTile(151);
+            //End Dead Tree
+            //mountain thing
             Rows[16].Columns[4].AddHeightTile(54);
             Rows[17].Columns[3].AddHeightTile(54);
             Rows[15].Columns[3].AddHeightTile(54);
@@ -56,7 +83,7 @@ namespace Scratch {
             Rows[15].Columns[4].AddHeightTile(54);
             Rows[15].Columns[4].AddHeightTile(54);
             Rows[15].Columns[4].AddHeightTile(51);
-      
+     
             Rows[18].Columns[3].AddHeightTile(51);
             Rows[19].Columns[3].AddHeightTile(50);
             Rows[18].Columns[4].AddHeightTile(55);
@@ -70,29 +97,33 @@ namespace Scratch {
             Rows[17].Columns[4].AddTopperTile(114);
             Rows[16].Columns[5].AddTopperTile(115);
             Rows[14].Columns[4].AddTopperTile(125);
-            Rows[15].Columns[5].AddTopperTile(91);
-            Rows[16].Columns[6].AddTopperTile(94);
-       
+            Rows[15].Columns[5].AddTopperTile(85);
+            Rows[16].Columns[6].AddTopperTile(85);
+            Rows[16].Columns[7].AddTopperTile(85);
+            Rows[15].Columns[6].AddTopperTile(85);
+            Rows[15].Columns[5].AddTopperTile(85);
+            Rows[15].Columns[6].AddTopperTile(85);
+            Rows[15].Columns[7].AddTopperTile(85);
+            Rows[16].Columns[5].AddTopperTile(85);
+            Rows[14].Columns[7].AddTopperTile(85);
+            Rows[13].Columns[6].AddTopperTile(114);
+            Rows[17].Columns[6].AddTopperTile(114);
+            Rows[17].Columns[7].AddTopperTile(32);
+            Rows[16].Columns[8].AddTopperTile(32);
+            Rows[14].Columns[6].AddHeightTile(56);
+            Rows[13].Columns[7].AddTopperTile(56);
+            //end mountain/lake thing
 
-            Rows[36].Columns[24].AddHeightTile(54);
-            Rows[37].Columns[23].AddHeightTile(54);
-            Rows[33].Columns[23].AddHeightTile(54);
-            Rows[36].Columns[23].AddHeightTile(53);
-            Rows[35].Columns[24].AddHeightTile(54);
-            Rows[35].Columns[24].AddHeightTile(54);
-            Rows[35].Columns[24].AddHeightTile(51);
+            //random rocks
+            Rows[25].Columns[25].AddHeightTile(55);
+            Rows[26].Columns[25].AddHeightTile(55);
+            Rows[27].Columns[25].AddHeightTile(55);
+            Rows[25].Columns[26].AddHeightTile(55);
+            Rows[24].Columns[27].AddHeightTile(55);
+            //end random rocks
 
-            Rows[38].Columns[23].AddHeightTile(51);
-            Rows[39].Columns[23].AddHeightTile(50);
-            Rows[38].Columns[24].AddHeightTile(55);
 
-            Rows[34].Columns[24].AddHeightTile(54);
 
-            Rows[34].Columns[25].AddHeightTile(62);
-            Rows[34].Columns[25].AddHeightTile(61);
-            Rows[34].Columns[25].AddHeightTile(63);
-
-            // End Create Sample Map Data
         }
 
         public void Update(GameTime gameTime, Vector2 pPos, GraphicsDevice graphDev) {

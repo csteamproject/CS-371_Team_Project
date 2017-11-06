@@ -48,6 +48,7 @@
     <Compile Include="src\Map\TileMap.cs" />
     <Compile Include="src\Enemy.cs" />
     <Compile Include="src\item\Item.cs" />
+    <Compile Include="src\item\ItemsOnScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

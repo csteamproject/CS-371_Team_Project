@@ -15,13 +15,10 @@ namespace Scratch
 		public Item(Texture2D texture, int row, int column) : base(texture, row, column)
 		{
 		}
-		public void initialize()
+		public void initialize(Vector2 ePos)
 		{
-			Random rnd = new Random();
-			xPos = rnd.Next(0, 500);
-			yPos = rnd.Next(0, 500);
-			pos.X = xPos;
-			pos.Y = yPos;
+			pos.X = ePos.X;
+			pos.Y = ePos.Y;
 		}
 
 		public void Update(GameTime gameTime, float? playerAngle, bool vert, bool horiz, float spd, Vector2 pPos)
@@ -31,8 +28,10 @@ namespace Scratch
 			{
 				if (vert)
 				{
-					if (playerAngle - MathHelper.PiOver2 < 1) angle = (float)3.0 * MathHelper.PiOver2;
-					else if (playerAngle - 3.0 * MathHelper.PiOver2 < 1) angle = MathHelper.PiOver2;
+					//if (playerAngle - MathHelper.PiOver2 < 1) angle = (float)3.0 * MathHelper.PiOver2;
+					//else if (playerAngle - 3.0 * MathHelper.PiOver2 < 1) angle = MathHelper.PiOver2;
+					if (pPos.Y > 200) angle = (float)3.0 * MathHelper.PiOver2;
+					else angle = MathHelper.PiOver2;
 				}
 
 				else if (horiz)
@@ -44,6 +43,7 @@ namespace Scratch
 
 			if (angle.HasValue)
 			{
+
 				angleHold = angle;
 				vel = new Vector2((float)Math.Cos((double)angle) * spd, (float)Math.Sin((double)angle) * spd);
 			}

@@ -13,7 +13,8 @@ namespace Scratch
 		SpriteBatch spriteBatch;
 		private Enemy zombie, zombie1;
 		private Player player;
-		private Item item;
+		private ItemsOnScreen items;
+		Vector2 enemyP;
 
 		static int squaresAcross = 17;
 		static int squaresDown = 37;
@@ -38,12 +39,15 @@ namespace Scratch
 			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
 			Texture2D playerTexture = Content.Load<Texture2D>("player");
 			Texture2D itemTexture = Content.Load<Texture2D>("hammer1");
+			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("piskel2"),
+				Content.Load<Texture2D>("gem4"), Content.Load<Texture2D>("hammer5"),
+				Content.Load<Texture2D>("hammer2") };
 			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
+			items = new ItemsOnScreen();
 			zombie = new Enemy(zombieTexture, 8, 36, 50, 5, 90);
 			zombie1 = new Enemy(zombieTexture, 8, 36, 40, 5, 90);
 			player = new Player(playerTexture, 4, 4);
-			item = new Item(itemTexture, 1, 1);
-			item.initialize();
+			items.initialize(itemTextureArray);
 			player.initialize();
 			zombie.initialize();
 		}
@@ -59,7 +63,10 @@ namespace Scratch
 				player.Update(gameTime, this.GraphicsDevice, myMap.camMoveVert, myMap.camMoveHoriz);
 				zombie.Update(gameTime, player.pos, myMap.camMoveVert, myMap.camMoveHoriz);
 				zombie1.Update(gameTime, player.pos, myMap.camMoveVert, myMap.camMoveHoriz);
-				item.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos);
+				Random rnd = new Random();
+				if (rnd.Next(1, 100) % 2 == 1) enemyP = zombie.ePos;
+				else enemyP = zombie1.ePos;
+				items.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos, enemyP);
 				base.Update(gameTime);
 				myMap.Update(gameTime, player.pos, this.GraphicsDevice);
 			}
@@ -69,10 +76,10 @@ namespace Scratch
 		{
 			spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
 			myMap.Draw(graphics, spriteBatch);
+			items.Draw(spriteBatch);
 			zombie.Draw(spriteBatch, zombie.ePos);
 			zombie1.Draw(spriteBatch, zombie1.ePos);
 			player.Draw(spriteBatch, player.pos);
-			item.Draw(spriteBatch, item.pos);
 			base.Draw(gameTime);
 			spriteBatch.End();
 		}

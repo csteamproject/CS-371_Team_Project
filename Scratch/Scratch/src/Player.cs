@@ -22,6 +22,22 @@ namespace Scratch
 		int width = 900;
 		int height = 625;
 		public float? angle;
+		public int lives = 10;
+
+		public Rectangle BoundingBox
+		{
+			get
+			{
+				return new Rectangle(
+					(int)pos.X,
+					(int)pos.Y - 52,
+					5,
+					5);
+				//	tex.Width,
+				//	tex.Height);
+			}
+		}
+
 
 		public Player(Texture2D texture, int row, int column) : base(texture, row, column)
 		{
@@ -102,6 +118,8 @@ namespace Scratch
 				if (pos.Y < 100)
 					pos.Y = 100;
 			}
+
+
 
 			base.Update(gameTime);
 		}

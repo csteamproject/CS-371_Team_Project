@@ -69,6 +69,17 @@ namespace Scratch
 				items.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos, enemyP);
 				base.Update(gameTime);
 				myMap.Update(gameTime, player.pos, this.GraphicsDevice);
+
+				if (player.BoundingBox.Intersects(zombie.BoundingBox) || player.BoundingBox.Intersects(zombie1.BoundingBox))
+				{
+					player.lives--;
+					if (player.lives == 0)
+						Exit();
+					Random rnd1 = new Random();
+					player.pos.X = rnd1.Next(500);
+					player.pos.Y = rnd1.Next(500);
+
+				}
 			}
 		}
 

@@ -9,6 +9,21 @@ namespace Scratch {
 		public Vector2 ePos, eVel;
 		double a, b, yOffset = 52;
 
+		public Rectangle BoundingBox
+		{
+			get
+			{
+				return new Rectangle(
+					(int)ePos.X,
+					(int)ePos.Y,
+					5,
+					5);
+
+				//	tex.Width,
+				//	tex.Height);
+			}
+		}
+
 		public Enemy( Texture2D texture, int row, int column, int speed, int health, int millisecondsPerFrame) : base(texture, row, column) {
 			this.speed = speed;
 			this.health = health;

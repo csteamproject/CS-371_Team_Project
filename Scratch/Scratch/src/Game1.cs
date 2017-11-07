@@ -13,6 +13,7 @@ namespace Scratch
 		SpriteBatch spriteBatch;
 		private Enemy zombie, zombie1;
 		private Player player;
+        private src.Bullet bullet;
 		private ItemsOnScreen items;
 		Vector2 enemyP;
 
@@ -39,7 +40,9 @@ namespace Scratch
 			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
 			Texture2D playerTexture = Content.Load<Texture2D>("player");
 			Texture2D itemTexture = Content.Load<Texture2D>("hammer1");
-			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("piskel2"),
+            Texture2D bulletTexture = Content.Load<Texture2D>("bullet");
+
+            Texture2D[] itemTextureArray = { Content.Load<Texture2D>("piskel2"),
 				Content.Load<Texture2D>("gem4"), Content.Load<Texture2D>("hammer5"),
 				Content.Load<Texture2D>("hammer2") };
 			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
@@ -47,6 +50,8 @@ namespace Scratch
 			zombie = new Enemy(zombieTexture, 8, 36, 50, 5, 90);
 			zombie1 = new Enemy(zombieTexture, 8, 36, 40, 5, 90);
 			player = new Player(playerTexture, 4, 4);
+            bullet = new src.Bullet(bulletTexture);
+            player.Bulletcreate(bulletTexture);
 			items.initialize(itemTextureArray);
 			player.initialize();
 			zombie.initialize();
@@ -79,7 +84,9 @@ namespace Scratch
 			items.Draw(spriteBatch);
 			zombie.Draw(spriteBatch, zombie.ePos);
 			zombie1.Draw(spriteBatch, zombie1.ePos);
+            
 			player.Draw(spriteBatch, player.pos);
+            player.DrawBullet(spriteBatch);
 			base.Draw(gameTime);
 			spriteBatch.End();
 		}

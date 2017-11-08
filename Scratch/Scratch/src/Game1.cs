@@ -15,8 +15,6 @@ namespace Scratch {
 		private ItemsOnScreen items;
 		Vector2 enemyP;
 
-
-
 		private Song backGround;
 
 		static int squaresAcross = 17;
@@ -59,14 +57,11 @@ namespace Scratch {
 
 		protected override void Update( GameTime gameTime ) {
 
+			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+				Exit();
+
 			gameScreen.Update();
 			if (gameScreen.gameState == menuScreen.GameState.Playing) {
-
-
-
-
-				if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-					Exit();
 				// TODO: Add your update logic here
 				if (IsActive) {
 					//				Texture2D tex = myMap.text;
@@ -88,7 +83,6 @@ namespace Scratch {
 						Random rnd1 = new Random();
 						player.pos.X = rnd1.Next(500);
 						player.pos.Y = rnd1.Next(500);
-
 					}
 				}
 			}

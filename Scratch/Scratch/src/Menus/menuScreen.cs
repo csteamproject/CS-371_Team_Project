@@ -60,7 +60,5 @@ namespace Scratch {
 			graphics.GraphicsDevice.Clear(Color.Crimson);
 			spriteBatch.Draw(endButton, endButtonPos, Color.White);
 		}
-
-
 	}
 }

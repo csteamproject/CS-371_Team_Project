@@ -4,11 +4,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace Scratch
-{
+namespace Scratch {
 
-	public class Game1 : Game
-	{
+	public class Game1 : Game {
 
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
@@ -17,43 +15,30 @@ namespace Scratch
 		private ItemsOnScreen items;
 		Vector2 enemyP;
 
-		private Texture2D startButton;
-		private Texture2D exitButton;
-		private Texture2D endButton;
-		private Vector2 startButtonPos;
-		private Vector2 exitButtonPos;
-		private Vector2 endButtonPos; 
-		enum GameState{StartMenu,EndMenu,Playing}
-		GameState gameState; 
+
+
 		private Song backGround;
 
 		static int squaresAcross = 17;
 		static int squaresDown = 37;
 		TileMap myMap = new TileMap(squaresDown, squaresAcross);
+		menuScreen gameScreen = new menuScreen();
 
-		public Game1()
-		{
+		public Game1() {
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 		}
 
-		protected override void Initialize()
-		{
+		protected override void Initialize() {
 			//TODO: Add your initialization logic here
-			startButtonPos = new Vector2((GraphicsDevice.Viewport.Width / 2)-400, 200);
-			exitButtonPos = new Vector2((GraphicsDevice.Viewport.Width / 2) -50, 200);
-			endButtonPos = new Vector2((GraphicsDevice.Viewport.Width/2), 100);
-			gameState = GameState.StartMenu;
+			gameScreen.Initialize(graphics);
 			base.Initialize();
 		}
 
-		protected override void LoadContent()
-		{
+		protected override void LoadContent() {
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			startButton = Content.Load<Texture2D>("start");
-			exitButton = Content.Load<Texture2D>("exit");
-			endButton = Content.Load<Texture2D>("gameover2");
+			gameScreen.LoadContent(Content);
 			backGround = Content.Load<Song>("media/background");
 			MediaPlayer.Play(backGround);
 			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
@@ -72,51 +57,18 @@ namespace Scratch
 			zombie.initialize();
 		}
 
-		protected override void Update(GameTime gameTime)
-		{
-			if (gameState == GameState.StartMenu)
-			{
-				KeyboardState keys = Keyboard.GetState();
+		protected override void Update( GameTime gameTime ) {
 
-				if (keys.IsKeyDown(Keys.Enter))
-				{
-
-					gameState = GameState.Playing;
-
-				}
-				if (keys.IsKeyDown(Keys.Back))
-				{
-					Exit();
-				}
-			}
-
-
-			if (gameState == GameState.EndMenu)
-			{
-				KeyboardState keys = Keyboard.GetState();
-
-				if (keys.IsKeyDown(Keys.Enter))
-				{
-					player.lives = 3; 
-					gameState = GameState.Playing;
-
-				}
-				if (keys.IsKeyDown(Keys.Back))
-				{
-					Exit();
-				}
-			}
-					
+			gameScreen.Update();
+			if (gameScreen.gameState == menuScreen.GameState.Playing) {
 
 
 
-			if (gameState == GameState.Playing){
 
 				if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 					Exit();
 				// TODO: Add your update logic here
-				if (IsActive)
-				{
+				if (IsActive) {
 					//				Texture2D tex = myMap.text;
 					player.Update(gameTime, this.GraphicsDevice, myMap.camMoveVert, myMap.camMoveHoriz);
 					zombie.Update(gameTime, player.pos, myMap.camMoveVert, myMap.camMoveHoriz);
@@ -128,12 +80,11 @@ namespace Scratch
 					base.Update(gameTime);
 					myMap.Update(gameTime, player.pos, this.GraphicsDevice);
 
-					if (player.BoundingBox.Intersects(zombie.BoundingBox) || player.BoundingBox.Intersects(zombie1.BoundingBox))
-					{
+					if (player.BoundingBox.Intersects(zombie.BoundingBox) || player.BoundingBox.Intersects(zombie1.BoundingBox)) {
 						player.lives--;
 						if (player.lives == 0)
-							gameState = GameState.EndMenu; 
-							//Exit();
+							gameScreen.gameState = menuScreen.GameState.EndMenu;
+						//Exit();
 						Random rnd1 = new Random();
 						player.pos.X = rnd1.Next(500);
 						player.pos.Y = rnd1.Next(500);
@@ -143,34 +94,19 @@ namespace Scratch
 			}
 		}
 
-		protected override void Draw(GameTime gameTime)
-		{
+		protected override void Draw( GameTime gameTime ) {
 			spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-			if (gameState == GameState.StartMenu)
-			{
-				graphics.GraphicsDevice.Clear(Color.Crimson);
-				spriteBatch.Draw(startButton, startButtonPos, Color.White);
-				spriteBatch.Draw(exitButton, exitButtonPos, Color.White);
-			}
-
-			else if (gameState == GameState.EndMenu)
-			{
-				graphics.GraphicsDevice.Clear(Color.Crimson);
-				spriteBatch.Draw(endButton, endButtonPos, Color.White);
-			}
-
-
-
-			else if (gameState == GameState.Playing)
-			{
-				
+			if (gameScreen.gameState == menuScreen.GameState.StartMenu) {
+				gameScreen.StartDraw(graphics, spriteBatch);
+			} else if (gameScreen.gameState == menuScreen.GameState.EndMenu) {
+				gameScreen.EndDraw(graphics, spriteBatch);
+			} else {
 				myMap.Draw(graphics, spriteBatch);
 				items.Draw(spriteBatch);
 				zombie.Draw(spriteBatch, zombie.ePos);
 				zombie1.Draw(spriteBatch, zombie1.ePos);
 				player.Draw(spriteBatch, player.pos);
 				base.Draw(gameTime);
-
 			}
 			spriteBatch.End();
 		}

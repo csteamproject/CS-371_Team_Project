@@ -152,3 +152,13 @@
 /home/vray/testGame/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/start.xnb
 /home/vray/testGame/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/gameover.xnb
 /home/vray/testGame/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/gameover2.xnb
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/media/background.ogg
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/media/background.xnb
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/exit.xnb
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/gameover2.xnb
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/gem4.xnb
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/hammer1.xnb
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/hammer2.xnb
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/hammer5.xnb
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/piskel2.xnb
+/home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/start.xnb

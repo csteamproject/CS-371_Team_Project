@@ -49,6 +49,7 @@
     <Compile Include="src\Enemy.cs" />
     <Compile Include="src\item\Item.cs" />
     <Compile Include="src\item\ItemsOnScreen.cs" />
+    <Compile Include="src\Menus\menuScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />
@@ -103,6 +104,7 @@
   <ItemGroup />
   <ItemGroup>
     <Folder Include="src\item\" />
+    <Folder Include="src\Menus\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

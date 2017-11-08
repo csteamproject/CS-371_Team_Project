@@ -5,14 +5,13 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Scratch {
 	public class Enemy : AnimatedSprite {
 
-		int speed { get; set; } int health { get; set; }
+		int speed { get; set; }
+		int health { get; set; }
 		public Vector2 ePos, eVel;
 		double a, b, yOffset = 52;
 
-		public Rectangle BoundingBox
-		{
-			get
-			{
+		public Rectangle BoundingBox {
+			get {
 				return new Rectangle(
 					(int)ePos.X,
 					(int)ePos.Y,
@@ -24,7 +23,7 @@ namespace Scratch {
 			}
 		}
 
-		public Enemy( Texture2D texture, int row, int column, int speed, int health, int millisecondsPerFrame) : base(texture, row, column) {
+		public Enemy( Texture2D texture, int row, int column, int speed, int health, int millisecondsPerFrame ) : base(texture, row, column) {
 			this.speed = speed;
 			this.health = health;
 			base.millisecondsPerFrame = millisecondsPerFrame;
@@ -38,7 +37,7 @@ namespace Scratch {
 			ePos = new Vector2(xPos, yPos);
 		}
 
-		public void Update(GameTime gameTime, Vector2 playerPos, bool vert, bool horiz) {
+		public void Update( GameTime gameTime, Vector2 playerPos, bool vert, bool horiz ) {
 			this.column = 1;
 
 			float? angle = null;
@@ -56,7 +55,7 @@ namespace Scratch {
 				if (b > 0) this.row = 5;
 				else if (b < 0) this.row = 3;
 				else this.row = 4;
-			} else if(a < 0) {
+			} else if (a < 0) {
 				if (b > 0) this.row = 7;
 				else if (b < 0) this.row = 1;
 				else this.row = 6;
@@ -73,7 +72,7 @@ namespace Scratch {
 
 			if (vert == true) eVel = new Vector2(eVel.X, 0);
 			if (horiz == true) eVel = new Vector2(0, eVel.Y);
-			    
+
 			ePos = Vector2.Add(ePos, Vector2.Multiply(eVel, (float)gameTime.ElapsedGameTime.TotalSeconds));
 			base.Update(gameTime);
 		}

@@ -7,6 +7,7 @@
 
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -34,7 +35,6 @@ namespace Scratch {
 			}
 		}
 
-
 		public Player( Texture2D texture, int row, int column ) : base(texture, row, column) {
 			tex = texture;
 		}
@@ -44,10 +44,8 @@ namespace Scratch {
 			pos = new Vector2(0, 0);
 		}
 
-		public void Update( GameTime gameTime, GraphicsDevice graphDev, bool vert, bool horiz ) {
-
-			KeyboardState keys = Keyboard.GetState(); ;
-
+		private void checkForMovement() {
+			KeyboardState keys = Keyboard.GetState();
 			this.column = 1;
 			angle = null;
 			if (keys.IsKeyDown(Keys.D)) {
@@ -65,7 +63,18 @@ namespace Scratch {
 			} else {
 				this.column = 0;
 			}
+		}
 
+		public Boolean checkForAttack(){
+			KeyboardState keys = Keyboard.GetState();
+			if (keys.IsKeyDown(Keys.E))
+				return true;
+			return false;
+		}
+
+		public void Update( GameTime gameTime, GraphicsDevice graphDev, bool vert, bool horiz ) {
+
+			checkForMovement();
 			if (angle.HasValue)
 				vel = new Vector2((float)Math.Cos((double)angle) * spd, (float)Math.Sin((double)angle) * spd);
 			else
@@ -97,7 +106,7 @@ namespace Scratch {
 					pos.Y = 100;
 			}
 
-			base.Update(gameTime);
+			Update(gameTime);
 		}
 	}
 }

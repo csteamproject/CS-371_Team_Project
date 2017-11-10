@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Scratch {
@@ -9,6 +10,10 @@ namespace Scratch {
 		int health { get; set; }
 		public Vector2 ePos, eVel;
 		double a, b, yOffset = 52;
+		private readonly int DEFAULT_WALK_START_FRAME = 5;
+		private readonly int DEFAULT_WALK_END_FRAME = 11;
+		private readonly int EAT_PLAYER_START_FRAME = 12;
+		private readonly int EAT_PLAYER_END_FRAME = 22;
 
 		public Rectangle BoundingBox {
 			get {
@@ -17,9 +22,6 @@ namespace Scratch {
 					(int)ePos.Y,
 					5,
 					5);
-
-				//	tex.Width,
-				//	tex.Height);
 			}
 		}
 
@@ -27,14 +29,26 @@ namespace Scratch {
 			this.speed = speed;
 			this.health = health;
 			base.millisecondsPerFrame = millisecondsPerFrame;
+			this.startFrame = DEFAULT_WALK_START_FRAME;
+			this.endFrame = DEFAULT_WALK_END_FRAME;
+			if (speed < 20)
+				this.millisecondsPerFrame = 225;
 		}
 
-		public void initialize() {
-			Random rnd = new Random();
-			int xPos = rnd.Next(0, 500);
-			int yPos = rnd.Next(0, 700);
+		public void initialize(Random rnd) {
+			int xPos = rnd.Next(0, 1500);
+			int yPos = rnd.Next(0, 800);
 			eVel = new Vector2(0, 0);
 			ePos = new Vector2(xPos, yPos);
+		}
+
+		public Boolean checkCollision( Player player ) {
+			if (player.BoundingBox.Intersects(this.BoundingBox) || this.BoundingBox.Intersects(player.BoundingBox)) {
+				this.startFrame = EAT_PLAYER_START_FRAME;
+				this.endFrame = EAT_PLAYER_END_FRAME;
+				return true;
+			}
+			return false;
 		}
 
 		public void Update( GameTime gameTime, Vector2 playerPos, bool vert, bool horiz ) {
@@ -70,11 +84,11 @@ namespace Scratch {
 			else
 				eVel = new Vector2(0, 0);
 
-			if (vert == true) eVel = new Vector2(eVel.X, 0);
-			if (horiz == true) eVel = new Vector2(0, eVel.Y);
+			if (vert == true) eVel = new Vector2(eVel.X, eVel.Y * -3.0f);
+			if (horiz == true) eVel = new Vector2(eVel.X * -2.0f, eVel.Y);
 
 			ePos = Vector2.Add(ePos, Vector2.Multiply(eVel, (float)gameTime.ElapsedGameTime.TotalSeconds));
-			base.Update(gameTime);
+			Update(gameTime);
 		}
 	}
 }

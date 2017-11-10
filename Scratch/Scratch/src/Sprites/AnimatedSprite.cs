@@ -22,6 +22,8 @@ namespace Scratch {
 		private int totalFrames;
 		int timeSinceLastFrame = 0;
 		public int millisecondsPerFrame { get; set; }= 150;
+		public int startFrame { get; set; }
+		public int endFrame { get; set; }
 
 		public AnimatedSprite(Texture2D texture, int rows, int columns) {
 			Texture = texture;
@@ -29,6 +31,7 @@ namespace Scratch {
 			Columns = columns;
 			currentFrame = 0;
 			totalFrames = Rows * Columns;
+			endFrame = columns;
 		}
 
 		public void Update(GameTime gameTime) {
@@ -36,8 +39,8 @@ namespace Scratch {
 			if (timeSinceLastFrame > millisecondsPerFrame) {
 				timeSinceLastFrame -= millisecondsPerFrame;
 				currentFrame++;
-				if (currentFrame == totalFrames)
-					currentFrame = 0;
+				if (currentFrame == endFrame)
+					currentFrame = startFrame;
 			}
 		}
 

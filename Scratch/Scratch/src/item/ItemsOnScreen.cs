@@ -1,10 +1,12 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace Scratch {
 	public class ItemsOnScreen {
 		Texture2D[] textureArray;
+		//List<Item> itemArray = new List<Item>();
 		Item[] itemArray;
 		int currentIndex = 0;
 
@@ -25,6 +27,7 @@ namespace Scratch {
 			Random rnd = new Random();
 			if (rnd.Next(1, 10000) % 100 == 0) {
 				itemArray[currentIndex] = new Item(textureArray[rnd.Next(1, 100) % 3], 1, 1);
+				//itemArray.Add(new Item(textureArray[rnd.Next(1, 100) % 3], 1, 1));
 				itemArray[currentIndex].initialize(ePos);
 				currentIndex++;
 				if (currentIndex >= 10) currentIndex = 0;

@@ -17,12 +17,11 @@ namespace Scratch {
 
 		private Song backGround;
 
-       static Texture2D fogOfWar;
        static Texture2D lightAura;
 
 		static int squaresAcross = 17;
 		static int squaresDown = 37;
-		//TileMap myMap = new TileMap(squaresDown, squaresAcross, fogOfWar, lightAura);
+		//TileMap myMap = new TileMap(squaresDown, squaresAcross, lightAura);
 
 		menuScreen gameScreen = new menuScreen();
 
@@ -49,7 +48,6 @@ namespace Scratch {
 			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("piskel2"),
 				Content.Load<Texture2D>("gem4"), Content.Load<Texture2D>("hammer5"),
 				Content.Load<Texture2D>("hammer2") };
-            fogOfWar = Content.Load<Texture2D>(@"fogofwar");
             lightAura = Content.Load<Texture2D>(@"lightaura");
             Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
             items = new ItemsOnScreen();
@@ -61,7 +59,7 @@ namespace Scratch {
 			zombie.initialize();
 		}
         //moved here so that sprites are loaded? 
-        TileMap myMap = new TileMap(squaresDown, squaresAcross, fogOfWar, lightAura);
+        TileMap myMap = new TileMap(squaresDown, squaresAcross, lightAura);
 
         protected override void Update( GameTime gameTime ) {
 

@@ -31,5 +31,4 @@ C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Pr
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\start.xnb
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\media\background.ogg
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\media\background.xnb
-C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\fogofwar.xnb
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\lightaura.xnb

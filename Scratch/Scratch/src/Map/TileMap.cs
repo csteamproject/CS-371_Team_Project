@@ -20,15 +20,13 @@ namespace Scratch {
 		static int baseOffsetY = -64;
 		static float heightRowDepthMod = 0.00001f;
 
-		public Texture2D text;
 		float lastCX, lastCY;
 		public bool camMoveVert, camMoveHoriz;
 		readonly int squaresAcross;
 		readonly int squaresDown;
-        readonly Texture2D fogOfWar;
         readonly Texture2D lightAura; 
 
-		public TileMap( int squaresDown, int squaresAcross, Texture2D fogOfWar, Texture2D lightAura) {
+		public TileMap( int squaresDown, int squaresAcross, Texture2D lightAura) {
 			for (int y = 0; y < MapHeight; y++) {
 				MapRow thisRow = new MapRow();
 
@@ -41,7 +39,7 @@ namespace Scratch {
 			this.squaresDown = squaresDown;
 			this.squaresAcross = squaresAcross;
             this.lightAura = lightAura;
-            this.fogOfWar = fogOfWar; 
+            
 
 
 			/*
@@ -254,18 +252,9 @@ namespace Scratch {
 							depthOffset - ((float)heightRow * heightRowDepthMod));
 					}
 
-                    if (this.Rows[y + firstY].Columns[x + firstX].Explored == false) {
-                        spriteBatch.Draw(
-                            fogOfWar,
-                            new Rectangle(
-                                (x * Tile.TileWidth) - offsetX, (y * Tile.TileHeight) - offsetY,
-                                fogOfWar.Width, fogOfWar.Height),
-                            Color.White);
-                    }
 
                 }
 			}
-
             spriteBatch.Draw(lightAura,
                 new Rectangle(
                     (int)Camera.Location.X - (lightAura.Width / 2),

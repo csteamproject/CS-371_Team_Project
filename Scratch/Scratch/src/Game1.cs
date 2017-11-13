@@ -91,9 +91,11 @@ namespace Scratch {
 		protected override void Draw( GameTime gameTime ) {
 			spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
 			if (gameScreen.gameState == menuScreen.GameState.StartMenu) {
-				gameScreen.StartDraw(graphics, spriteBatch);
+				gameScreen.StartDraw (graphics, spriteBatch);
 			} else if (gameScreen.gameState == menuScreen.GameState.EndMenu) {
-				gameScreen.EndDraw(graphics, spriteBatch);
+				gameScreen.EndDraw (graphics, spriteBatch);
+			} else if (gameScreen.gameState == menuScreen.GameState.Paused) {
+				gameScreen.ResumeDraw (graphics, spriteBatch);
 			} else {
 				myMap.Draw(graphics, spriteBatch);
 				items.Draw(spriteBatch);

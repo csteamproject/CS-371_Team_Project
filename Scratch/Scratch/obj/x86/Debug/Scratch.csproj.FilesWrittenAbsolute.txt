@@ -162,3 +162,5 @@
 /home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/hammer5.xnb
 /home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/piskel2.xnb
 /home/robert/Projects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/start.xnb
+/home/vray/testGame/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/resume.xnb
+/home/vray/testGame/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/font.xnb

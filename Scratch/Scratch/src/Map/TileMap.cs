@@ -255,6 +255,7 @@ namespace Scratch {
 
                 }
 			}
+		//where error occurs
             spriteBatch.Draw(lightAura,
                 new Rectangle(
                     (int)Camera.Location.X - (lightAura.Width / 2),

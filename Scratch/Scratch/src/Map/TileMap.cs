@@ -25,8 +25,10 @@ namespace Scratch {
 		public bool camMoveVert, camMoveHoriz;
 		readonly int squaresAcross;
 		readonly int squaresDown;
+        readonly Texture2D fogOfWar;
+        readonly Texture2D lightAura; 
 
-		public TileMap( int squaresDown, int squaresAcross ) {
+		public TileMap( int squaresDown, int squaresAcross, Texture2D fogOfWar, Texture2D lightAura) {
 			for (int y = 0; y < MapHeight; y++) {
 				MapRow thisRow = new MapRow();
 
@@ -38,6 +40,9 @@ namespace Scratch {
 
 			this.squaresDown = squaresDown;
 			this.squaresAcross = squaresAcross;
+            this.lightAura = lightAura;
+            this.fogOfWar = fogOfWar; 
+
 
 			/*
                 Tile IDs
@@ -149,9 +154,32 @@ namespace Scratch {
 			if (Math.Abs(Camera.Location.Y - lastCY) < 0.5f)
 				camMoveVert = false;
 
+            UpdateFogOfWar();
+
 		}
 
-		public void Draw( GraphicsDeviceManager graphics, SpriteBatch spriteBatch ) {
+        private void UpdateFogOfWar() {
+            int playerMapX = (int)Camera.Location.X / Tile.TileWidth;
+            int playerMapY = (int)Camera.Location.Y / Tile.TileHeight;
+
+
+            // Loop for "Light Aura" effect:
+
+            for (int y = playerMapY - 3; y <= playerMapY + 3; y++)
+                for (int x = playerMapX - 3; x <= playerMapX + 3; x++)
+                {
+                    if ((x >= 0) && (x < MapWidth) && (y >= 0) && (y < MapHeight))
+                    {
+                        if ((x >= playerMapX - 2) && (y >= playerMapY - 2) &&
+                            (x <= playerMapX + 2) && (y <= playerMapY + 2))
+                             Rows[y].Columns[x].Explored = true;
+                        else
+                             Rows[y].Columns[x].Explored = false;
+                    }
+                }
+        }
+
+        public void Draw( GraphicsDeviceManager graphics, SpriteBatch spriteBatch ) {
 
 			graphics.GraphicsDevice.Clear(Color.Black);
 
@@ -175,6 +203,7 @@ namespace Scratch {
 					int mapx = (firstX + x);
 					int mapy = (firstY + y);
 					depthOffset = 0.7f - ((mapx + (mapy * Tile.TileWidth)) / maxdepth);
+
 
 					foreach (int tileID in this.Rows[mapy].Columns[mapx].BaseTiles) {
 						spriteBatch.Draw(
@@ -224,8 +253,25 @@ namespace Scratch {
 							SpriteEffects.None,
 							depthOffset - ((float)heightRow * heightRowDepthMod));
 					}
-				}
+
+                    if (this.Rows[y + firstY].Columns[x + firstX].Explored == false) {
+                        spriteBatch.Draw(
+                            fogOfWar,
+                            new Rectangle(
+                                (x * Tile.TileWidth) - offsetX, (y * Tile.TileHeight) - offsetY,
+                                fogOfWar.Width, fogOfWar.Height),
+                            Color.White);
+                    }
+
+                }
 			}
-		}//end draw
+
+            spriteBatch.Draw(lightAura,
+                new Rectangle(
+                    (int)Camera.Location.X - (lightAura.Width / 2),
+                    (int)Camera.Location.Y - (lightAura.Height / 2),
+                    lightAura.Width, lightAura.Height),
+                    Color.White);
+        }//end draw
 	}
 }

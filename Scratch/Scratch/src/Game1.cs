@@ -60,7 +60,7 @@ namespace Scratch {
 			player.initialize();
 			zombie.initialize();
 		}
-
+        //moved here so that sprites are loaded? 
         TileMap myMap = new TileMap(squaresDown, squaresAcross, fogOfWar, lightAura);
 
         protected override void Update( GameTime gameTime ) {

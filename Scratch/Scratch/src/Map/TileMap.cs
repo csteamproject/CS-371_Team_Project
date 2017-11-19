@@ -13,21 +13,26 @@ namespace Scratch {
 		public List<MapCell> Columns = new List<MapCell>();
 	}
 
-	class TileMap {
-		public List<MapRow> Rows = new List<MapRow>();
-		public int MapWidth = 50;
-		public int MapHeight = 50;
-		static int baseOffsetX = -32;
-		static int baseOffsetY = -64;
-		static float heightRowDepthMod = 0.00001f;
+    class TileMap {
+        public List<MapRow> Rows = new List<MapRow>();
+        public int MapWidth = 50;
+        public int MapHeight = 50;
+        static int baseOffsetX = -32;
+        static int baseOffsetY = -64;
+        static float heightRowDepthMod = 0.00001f;
 
-		float lastCX, lastCY;
-		public bool camMoveVert, camMoveHoriz;
-		readonly int squaresAcross;
-		readonly int squaresDown;
-        readonly Texture2D lightAura; 
+        float lastCX, lastCY;
+        public bool camMoveVert, camMoveHoriz;
+        readonly int squaresAcross;
+        readonly int squaresDown;
+        Texture2D lightAura;
 
-		public TileMap( int squaresDown, int squaresAcross) {
+
+        public void lightAuracreate(ContentManager Content) {
+            lightAura = Content.Load<Texture2D>(@"lightaura");
+        }
+
+        public TileMap( int squaresDown, int squaresAcross) {
 			for (int y = 0; y < MapHeight; y++) {
 				MapRow thisRow = new MapRow();
 
@@ -130,7 +135,7 @@ namespace Scratch {
 
 		}
 
-		public void Update( GameTime gameTime, Vector2 pPos, GraphicsDevice graphDev ) {
+		public void Update( GameTime gameTime, Vector2 pPos, GraphicsDevice graphDev, Player player ) {
 
 			camMoveVert = true;
 			camMoveHoriz = true;
@@ -153,24 +158,26 @@ namespace Scratch {
 			if (Math.Abs(Camera.Location.Y - lastCY) < 0.5f)
 				camMoveVert = false;
 
-            UpdateFogOfWar();
+            UpdateFogOfWar(player);
 
 		}
 
-        private void UpdateFogOfWar() {
-            int playerMapX = (int)Camera.Location.X / Tile.TileWidth;
-            int playerMapY = (int)Camera.Location.Y / Tile.TileHeight;
-
+        private void UpdateFogOfWar(Player player) {
+            /// int playerMapX = (int)Camera.Location.X / Tile.TileWidth;
+            // int playerMapY = (int)Camera.Location.Y / Tile.TileHeight;
+            int lightAuraX = (int)player.pos.X;
+            int lightAuraY = (int)player.pos.Y;
+             
 
             // Loop for "Light Aura" effect:
 
-            for (int y = playerMapY - 3; y <= playerMapY + 3; y++)
-                for (int x = playerMapX - 3; x <= playerMapX + 3; x++)
+            for (int y = lightAuraY - 3; y <= lightAuraY + 3; y++)
+                for (int x = lightAuraX - 3; x <= lightAuraX + 3; x++)
                 {
                     if ((x >= 0) && (x < MapWidth) && (y >= 0) && (y < MapHeight))
                     {
-                        if ((x >= playerMapX - 2) && (y >= playerMapY - 2) &&
-                            (x <= playerMapX + 2) && (y <= playerMapY + 2))
+                        if ((x >= lightAuraX - 2) && (y >= lightAuraY - 2) &&
+                            (x <= lightAuraX + 2) && (y <= lightAuraY + 2))
                              Rows[y].Columns[x].Explored = true;
                         else
                              Rows[y].Columns[x].Explored = false;
@@ -178,7 +185,7 @@ namespace Scratch {
                 }
         }
 
-        public void Draw( GraphicsDeviceManager graphics, SpriteBatch spriteBatch, ContentManager Content) {
+        public void Draw( GraphicsDeviceManager graphics, SpriteBatch spriteBatch, Player player) {
 
 			graphics.GraphicsDevice.Clear(Color.Black);
 
@@ -257,11 +264,11 @@ namespace Scratch {
                 }
 			}
             //where error occurs
-            Content.Load<Texture2D>;
+         
             spriteBatch.Draw(lightAura,
                 new Rectangle(
-                    (int)Camera.Location.X - (lightAura.Width / 2),
-                    (int)Camera.Location.Y - (lightAura.Height / 2),
+                    (int)player.pos.X - (lightAura.Width / 2),
+                    (int)player.pos.Y - (lightAura.Height / 2),
                     lightAura.Width, lightAura.Height),
                     Color.White);
         }//end draw

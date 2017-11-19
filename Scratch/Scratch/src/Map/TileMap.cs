@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -26,7 +27,7 @@ namespace Scratch {
 		readonly int squaresDown;
         readonly Texture2D lightAura; 
 
-		public TileMap( int squaresDown, int squaresAcross, Texture2D lightAura) {
+		public TileMap( int squaresDown, int squaresAcross) {
 			for (int y = 0; y < MapHeight; y++) {
 				MapRow thisRow = new MapRow();
 
@@ -38,7 +39,7 @@ namespace Scratch {
 
 			this.squaresDown = squaresDown;
 			this.squaresAcross = squaresAcross;
-            this.lightAura = lightAura;
+           
             
 
 
@@ -177,7 +178,7 @@ namespace Scratch {
                 }
         }
 
-        public void Draw( GraphicsDeviceManager graphics, SpriteBatch spriteBatch ) {
+        public void Draw( GraphicsDeviceManager graphics, SpriteBatch spriteBatch, ContentManager Content) {
 
 			graphics.GraphicsDevice.Clear(Color.Black);
 
@@ -255,7 +256,8 @@ namespace Scratch {
 
                 }
 			}
-		//where error occurs
+            //where error occurs
+            Content.Load<Texture2D>;
             spriteBatch.Draw(lightAura,
                 new Rectangle(
                     (int)Camera.Location.X - (lightAura.Width / 2),

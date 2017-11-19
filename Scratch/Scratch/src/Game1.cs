@@ -17,11 +17,11 @@ namespace Scratch {
 
 		private Song backGround;
 
-       static Texture2D lightAura;
+      
 
 		static int squaresAcross = 17;
 		static int squaresDown = 37;
-		//TileMap myMap = new TileMap(squaresDown, squaresAcross, lightAura);
+		TileMap myMap = new TileMap(squaresDown, squaresAcross);
 
 		menuScreen gameScreen = new menuScreen();
 
@@ -58,8 +58,6 @@ namespace Scratch {
 			player.initialize();
 			zombie.initialize();
 		}
-        //moved here so that sprites are loaded? 
-        TileMap myMap = new TileMap(squaresDown, squaresAcross, lightAura);
 
         protected override void Update( GameTime gameTime ) {
 

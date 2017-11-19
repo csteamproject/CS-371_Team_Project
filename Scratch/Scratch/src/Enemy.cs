@@ -70,8 +70,8 @@ namespace Scratch {
 			else
 				eVel = new Vector2(0, 0);
 
-			if (vert == true) eVel = new Vector2(eVel.X, 0);
-			if (horiz == true) eVel = new Vector2(0, eVel.Y);
+			if (vert == true) eVel = new Vector2(eVel.X, (eVel.Y/this.speed)*(-1*(100-this.speed)));
+			if (horiz == true) eVel = new Vector2((eVel.X / this.speed) * (-1 * (100 - this.speed)), eVel.Y);
 
 			ePos = Vector2.Add(ePos, Vector2.Multiply(eVel, (float)gameTime.ElapsedGameTime.TotalSeconds));
 			base.Update(gameTime);

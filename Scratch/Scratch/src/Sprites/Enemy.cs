@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Scratch {
@@ -9,28 +11,46 @@ namespace Scratch {
 		int health { get; set; }
 		public Vector2 ePos, eVel;
 		double a, b, yOffset = 52;
+		private readonly int DEFAULT_WALK_START_FRAME = 5, DEFAULT_WALK_END_FRAME = 11,
+									  		  EAT_PLAYER_START_FRAME = 12, EAT_PLAYER_END_FRAME = 22;
 
-		public Rectangle BoundingBox {
-			get {
-				return new Rectangle(
-					(int)ePos.X,
-					(int)ePos.Y,
-					5,
-					5);
-
-				//	tex.Width,
-				//	tex.Height);
-			}
-		}
+		public Rectangle BoundingBox { get { return new Rectangle( (int)ePos.X, (int)ePos.Y, 5, 5); } }
 
 		public Enemy( Texture2D texture, int row, int column, int speed, int health, int millisecondsPerFrame ) : base(texture, row, column) {
 			this.speed = speed;
 			this.health = health;
-			base.millisecondsPerFrame = millisecondsPerFrame;
+			if (speed < 20)
+				this.millisecondsPerFrame = 225;
+			else
+				base.millisecondsPerFrame = millisecondsPerFrame;
 		}
 
-		public void initialize() {
-			Random rnd = new Random();
+		public Boolean checkCollision( Player player ) {
+			if (player.BoundingBox.Intersects(this.BoundingBox) || this.BoundingBox.Intersects(player.BoundingBox)) {
+				//this.startFrame = EAT_PLAYER_START_FRAME;
+				//this.endFrame = EAT_PLAYER_END_FRAME;
+				return true;
+			}
+			return false;
+		}
+
+		public static void LoadContent(ContentManager Content, Random rnd, List<Enemy> zombies) {
+			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
+			for (int i = 0; i < 400; i++) {
+				zombies.Add(new Enemy(zombieTexture, 8, 36, rnd.Next(5, 50), 5, 90));
+				zombies[i].initialize(rnd);
+			}
+		}
+
+		public static void randomSpawn( List<Enemy> zombies, Random rnd, ContentManager Content ) {
+			if (zombies.Count < 500 && rnd.Next(1, 100) == 1) {
+				zombies.Add(new Enemy(Content.Load<Texture2D>("zombie_0"), 8, 36, rnd.Next(5, 50), 5, 90));
+				int zombieCount = zombies.Count - 1;
+				zombies[zombieCount].initialize(rnd);
+			}
+		}
+
+		public void initialize(Random rnd) {
 			int xPos = rnd.Next(0, 500);
 			int yPos = rnd.Next(0, 700);
 			eVel = new Vector2(0, 0);

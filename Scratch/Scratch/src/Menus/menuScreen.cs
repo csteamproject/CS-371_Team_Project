@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace Scratch {
 	public class menuScreen {
@@ -17,6 +18,7 @@ namespace Scratch {
 		private Vector2 resumeButtonPos;
 		private SpriteFont font;
 		private Vector2 fontPos; 
+		private Song backGround;
 
 		public enum GameState { StartMenu, EndMenu, Playing, Paused,}
 		public GameState gameState;
@@ -39,6 +41,8 @@ namespace Scratch {
 			endButton = Content.Load<Texture2D>("gameover2");
 			resumeButton = Content.Load<Texture2D>("resume");
 			font = Content.Load<SpriteFont> ("font");
+			backGround = Content.Load<Song>("media/background");
+			MediaPlayer.Play(backGround);
 
 		}
 

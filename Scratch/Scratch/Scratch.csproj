@@ -58,6 +58,7 @@
     <None Include="Content\zombie_0.png" />
     <None Include="Content\player.png" />
     <None Include="Content\MapSprite.png" />
+    <None Include="src\Map\MapStructure.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />

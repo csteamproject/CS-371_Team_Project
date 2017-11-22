@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -59,71 +60,13 @@ namespace Scratch {
                 150 - 159 = row 16, bottom of big trees
             */
 
-			//Tree
-			Rows[2].Columns[8].AddHeightTile(130);
-			Rows[6].Columns[8].AddHeightTile(140);
-			Rows[10].Columns[8].AddHeightTile(150);
-			//end Tree
-
-			//Dead tree
-			Rows[2].Columns[9].AddHeightTile(131);
-			Rows[6].Columns[9].AddHeightTile(141);
-			Rows[10].Columns[9].AddHeightTile(151);
-			//end Dead Tree
-			//Dead Tree
-			Rows[1].Columns[8].AddHeightTile(131);
-			Rows[5].Columns[8].AddHeightTile(141);
-			Rows[9].Columns[8].AddHeightTile(151);
-			//End Dead Tree
-			//mountain thing
-			Rows[16].Columns[4].AddHeightTile(54);
-			Rows[17].Columns[3].AddHeightTile(54);
-			Rows[15].Columns[3].AddHeightTile(54);
-			Rows[16].Columns[3].AddHeightTile(53);
-			Rows[15].Columns[4].AddHeightTile(54);
-			Rows[15].Columns[4].AddHeightTile(54);
-			Rows[15].Columns[4].AddHeightTile(51);
-
-			Rows[18].Columns[3].AddHeightTile(51);
-			Rows[19].Columns[3].AddHeightTile(50);
-			Rows[18].Columns[4].AddHeightTile(55);
-
-			Rows[14].Columns[4].AddHeightTile(54);
-
-			Rows[14].Columns[5].AddHeightTile(62);
-			Rows[14].Columns[5].AddHeightTile(61);
-			Rows[14].Columns[5].AddHeightTile(63);
-
-			Rows[17].Columns[4].AddTopperTile(114);
-			Rows[16].Columns[5].AddTopperTile(115);
-			Rows[14].Columns[4].AddTopperTile(125);
-			Rows[15].Columns[5].AddTopperTile(85);
-			Rows[16].Columns[6].AddTopperTile(85);
-			Rows[16].Columns[7].AddTopperTile(85);
-			Rows[15].Columns[6].AddTopperTile(85);
-			Rows[15].Columns[5].AddTopperTile(85);
-			Rows[15].Columns[6].AddTopperTile(85);
-			Rows[15].Columns[7].AddTopperTile(85);
-			Rows[16].Columns[5].AddTopperTile(85);
-			Rows[14].Columns[7].AddTopperTile(85);
-			Rows[13].Columns[6].AddTopperTile(114);
-			Rows[17].Columns[6].AddTopperTile(114);
-			Rows[17].Columns[7].AddTopperTile(32);
-			Rows[16].Columns[8].AddTopperTile(32);
-			Rows[14].Columns[6].AddHeightTile(56);
-			Rows[13].Columns[7].AddTopperTile(56);
-			//end mountain/lake thing
-
-			//random rocks
-			Rows[25].Columns[25].AddHeightTile(55);
-			Rows[26].Columns[25].AddHeightTile(55);
-			Rows[27].Columns[25].AddHeightTile(55);
-			Rows[25].Columns[26].AddHeightTile(55);
-			Rows[24].Columns[27].AddHeightTile(55);
-			//end random rocks
-
-
-
+			var readLines = File.ReadLines("../../src/Map/MapStructure.txt");
+			foreach (var line in readLines) {
+				if (line != "" && !line.Contains(("//"))) {
+					string[] values = line.Split(',').Select(sValue => sValue.Trim()).ToArray();
+					Rows[int.Parse(values[0])].Columns[int.Parse(values[1])].AddHeightTile(int.Parse(values[2]));
+				}
+			}
 		}
 
 		public void Update( GameTime gameTime, Vector2 pPos, GraphicsDevice graphDev ) {
@@ -226,6 +169,6 @@ namespace Scratch {
 					}
 				}
 			}
-		}//end draw
+		}
 	}
 }

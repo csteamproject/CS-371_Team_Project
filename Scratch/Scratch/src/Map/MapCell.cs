@@ -8,6 +8,7 @@ namespace Scratch {
 		public List<int> BaseTiles = new List<int>();
 		public List<int> HeightTiles = new List<int>();
 		public List<int> TopperTiles = new List<int>();
+        public bool Explored { get; set; }
 
 		public int TileID {
 			get { return BaseTiles.Count > 0 ? BaseTiles[0] : 0; }
@@ -33,6 +34,7 @@ namespace Scratch {
 
 		public MapCell( int tileID ) {
 			TileID = tileID;
+            Explored = false;
 		}
 	}
 }

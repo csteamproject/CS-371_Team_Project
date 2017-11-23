@@ -175,7 +175,11 @@
 /processorParam:TextureFormat=Color
 /build:gameover2.png
 
+<<<<<<< HEAD
 #begin resume.png
+=======
+#begin lightaura.png
+>>>>>>> lightaura
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -185,6 +189,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:resume.png
 
 #begin font.spritefont
@@ -193,4 +198,7 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:font.spritefont
+=======
+/build:lightaura.png
+>>>>>>> lightaura
 

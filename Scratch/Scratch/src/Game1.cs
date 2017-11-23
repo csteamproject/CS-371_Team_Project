@@ -19,7 +19,10 @@ namespace Scratch {
 		private ItemsOnScreen items;
 		Vector2 enemyP;
 
-		static int squaresAcross = 17, squaresDown = 37;
+		private Song backGround;
+		static int squaresAcross = 17;
+		static int squaresDown = 37;
+
 		TileMap myMap = new TileMap(squaresDown, squaresAcross);
 
 		menuScreen gameScreen = new menuScreen();
@@ -44,15 +47,19 @@ namespace Scratch {
 			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("piskel2"),
 				Content.Load<Texture2D>("gem4"), Content.Load<Texture2D>("hammer5"),
 				Content.Load<Texture2D>("hammer2") };
-			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
-			items = new ItemsOnScreen();
+            Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
+            Texture2D lightAura = Content.Load<Texture2D>(@"lightaura");
+            myMap.lightAuracreate(Content);
+            items = new ItemsOnScreen();
+			zombie = new Enemy(zombieTexture, 8, 36, 50, 5, 90);
+			zombie1 = new Enemy(zombieTexture, 8, 36, 40, 5, 90);
 			player = new Player(playerTexture, 4, 4);
 			items.initialize(itemTextureArray);
 			player.initialize();
 			Enemy.LoadContent(Content, rnd, zombies);
 		}
 
-		protected override void Update( GameTime gameTime ) {
+        protected override void Update( GameTime gameTime ) {
 
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
@@ -69,6 +76,9 @@ namespace Scratch {
 					else enemyP = enemy.ePos;
 					items.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos, enemyP);
 
+					base.Update(gameTime);
+					myMap.Update(gameTime, player.pos, this.GraphicsDevice, player);
+
 					if (enemy.checkCollision(player)) {
 						player.lives--;
 						player.pos.X = rnd.Next(500);
@@ -78,9 +88,7 @@ namespace Scratch {
 
 				player.Update(gameTime, this.GraphicsDevice, myMap.camMoveVert, myMap.camMoveHoriz);
 
-				base.Update(gameTime);
-				myMap.Update(gameTime, player.pos, this.GraphicsDevice);
-
+				
 			}
 		}
 
@@ -91,13 +99,17 @@ namespace Scratch {
 			} else if (gameScreen.gameState == menuScreen.GameState.EndMenu) {
 				gameScreen.EndDraw(graphics, spriteBatch);
 			} else {
-				myMap.Draw(graphics, spriteBatch);
+
+
+				myMap.Draw(graphics, spriteBatch, player);
 				items.Draw(spriteBatch);
 				foreach (Enemy enemy in zombies) {
 					enemy.Draw(spriteBatch, enemy.ePos);
 				}
 				player.Draw(spriteBatch, player.pos);
 				base.Draw(gameTime);
+
+
 			}
 			spriteBatch.End();
 		}

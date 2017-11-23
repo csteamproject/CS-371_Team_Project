@@ -19,7 +19,7 @@ namespace Scratch {
 		private ItemsOnScreen items;
 		Vector2 enemyP;
 
-		private Song backGround;
+		
 		static int squaresAcross = 17;
 		static int squaresDown = 37;
 
@@ -51,8 +51,6 @@ namespace Scratch {
             Texture2D lightAura = Content.Load<Texture2D>(@"lightaura");
             myMap.lightAuracreate(Content);
             items = new ItemsOnScreen();
-			zombie = new Enemy(zombieTexture, 8, 36, 50, 5, 90);
-			zombie1 = new Enemy(zombieTexture, 8, 36, 40, 5, 90);
 			player = new Player(playerTexture, 4, 4);
 			items.initialize(itemTextureArray);
 			player.initialize();

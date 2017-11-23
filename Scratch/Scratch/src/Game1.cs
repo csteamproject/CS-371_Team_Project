@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -10,10 +10,19 @@ namespace Scratch {
 
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-		private AnimatedSprite zombie;
-		private Player player;
 
-		//KeyboardState keys;
+		private List<Enemy> zombies = new List<Enemy>();
+
+		Random rnd = new Random();
+
+		private Player player;
+		private ItemsOnScreen items;
+		Vector2 enemyP;
+
+		static int squaresAcross = 17, squaresDown = 37;
+		TileMap myMap = new TileMap(squaresDown, squaresAcross);
+
+		menuScreen gameScreen = new menuScreen();
 
 		public Game1() {
 			graphics = new GraphicsDeviceManager(this);
@@ -22,37 +31,75 @@ namespace Scratch {
 
 		protected override void Initialize() {
 			//TODO: Add your initialization logic here
+			gameScreen.Initialize(graphics);
 			base.Initialize();
 		}
 
 		protected override void LoadContent() {
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
+			gameScreen.LoadContent(Content);
 			Texture2D playerTexture = Content.Load<Texture2D>("player");
-			zombie = new AnimatedSprite(zombieTexture, 8, 36);
+			Texture2D itemTexture = Content.Load<Texture2D>("hammer1");
+			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("piskel2"),
+				Content.Load<Texture2D>("gem4"), Content.Load<Texture2D>("hammer5"),
+				Content.Load<Texture2D>("hammer2") };
+			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
+			items = new ItemsOnScreen();
 			player = new Player(playerTexture, 4, 4);
+			items.initialize(itemTextureArray);
+			player.initialize();
+			Enemy.LoadContent(Content, rnd, zombies);
 		}
 
 		protected override void Update( GameTime gameTime ) {
+
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
-			// TODO: Add your update logic here
 
-			if (IsActive) {
-				zombie.Update(gameTime);
-				player.Update(gameTime);
+			gameScreen.Update();
+			if (gameScreen.gameState == menuScreen.GameState.Playing && IsActive) {
+				// TODO: Add your update logic here
+
+				Enemy.randomSpawn(zombies, rnd, Content);
+
+				foreach (Enemy enemy in zombies) {
+					enemy.Update(gameTime, player.pos, myMap.camMoveVert, myMap.camMoveHoriz);
+					if (rnd.Next(1, 100) % 2 == 1) enemyP = enemy.ePos;
+					else enemyP = enemy.ePos;
+					items.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos, enemyP);
+
+					if (enemy.checkCollision(player)) {
+						player.lives--;
+						player.pos.X = rnd.Next(500);
+						player.pos.Y = rnd.Next(500);
+					}
+				}
+
+				player.Update(gameTime, this.GraphicsDevice, myMap.camMoveVert, myMap.camMoveHoriz);
+
 				base.Update(gameTime);
+				myMap.Update(gameTime, player.pos, this.GraphicsDevice);
+
 			}
 		}
 
 		protected override void Draw( GameTime gameTime ) {
-			graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
-
-			//TODO: Add your drawing code here
-			zombie.Draw(spriteBatch, new Vector2(50,50));
-			player.Draw(spriteBatch, player.pos);
-			base.Draw(gameTime);
+			spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+			if (gameScreen.gameState == menuScreen.GameState.StartMenu) {
+				gameScreen.StartDraw(graphics, spriteBatch);
+			} else if (gameScreen.gameState == menuScreen.GameState.EndMenu) {
+				gameScreen.EndDraw(graphics, spriteBatch);
+			} else {
+				myMap.Draw(graphics, spriteBatch);
+				items.Draw(spriteBatch);
+				foreach (Enemy enemy in zombies) {
+					enemy.Draw(spriteBatch, enemy.ePos);
+				}
+				player.Draw(spriteBatch, player.pos);
+				base.Draw(gameTime);
+			}
+			spriteBatch.End();
 		}
 	}
 }

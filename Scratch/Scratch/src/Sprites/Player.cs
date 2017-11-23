@@ -48,7 +48,7 @@ namespace Scratch {
 
 			KeyboardState keys = Keyboard.GetState(); ;
 
-			this.column = 1;
+			this.stopFrame = 1;
 			angle = null;
 			if (keys.IsKeyDown(Keys.D)) {
 				angle = 0;
@@ -63,7 +63,7 @@ namespace Scratch {
 				this.row = 0;
 				angle = MathHelper.PiOver2;
 			} else {
-				this.column = 0;
+				this.stopFrame = 0;
 			}
 
 			if (angle.HasValue)

@@ -19,6 +19,8 @@ namespace Scratch {
 		public Enemy( Texture2D texture, int row, int column, int speed, int health, int millisecondsPerFrame ) : base(texture, row, column) {
 			this.speed = speed;
 			this.health = health;
+			this.startFrame = DEFAULT_WALK_START_FRAME;
+			this.endFrame = DEFAULT_WALK_END_FRAME;
 			if (speed < 20)
 				this.millisecondsPerFrame = 225;
 			else
@@ -27,16 +29,20 @@ namespace Scratch {
 
 		public Boolean checkCollision( Player player ) {
 			if (player.BoundingBox.Intersects(this.BoundingBox) || this.BoundingBox.Intersects(player.BoundingBox)) {
-				//this.startFrame = EAT_PLAYER_START_FRAME;
-				//this.endFrame = EAT_PLAYER_END_FRAME;
+				this.startFrame = this.currentFrame = EAT_PLAYER_START_FRAME;
+				this.endFrame = EAT_PLAYER_END_FRAME;
 				return true;
+			} else if (frameReset) {
+				frameReset = false;
+				this.startFrame = this.currentFrame = DEFAULT_WALK_START_FRAME;
+				this.endFrame = DEFAULT_WALK_END_FRAME;
 			}
 			return false;
 		}
 
 		public static void LoadContent(ContentManager Content, Random rnd, List<Enemy> zombies) {
 			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
-			for (int i = 0; i < 400; i++) {
+			for (int i = 0; i < 1; i++) {
 				zombies.Add(new Enemy(zombieTexture, 8, 36, rnd.Next(5, 50), 5, 90));
 				zombies[i].initialize(rnd);
 			}
@@ -58,12 +64,11 @@ namespace Scratch {
 		}
 
 		public void Update( GameTime gameTime, Vector2 playerPos, bool vert, bool horiz ) {
-			this.column = 1;
+			this.stopFrame = 1;
 
 			float? angle = null;
 			a = (playerPos.X) - ePos.X;
 			b = (playerPos.Y - yOffset) - ePos.Y;
-			//c = Math.Sqrt(a * a + b * b);
 
 			if (ePos.X <= playerPos.X)
 				angle = (float)Math.Atan(b / a);

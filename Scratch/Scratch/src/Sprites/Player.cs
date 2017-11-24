@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -21,6 +22,7 @@ namespace Scratch {
 		int height = 625;
 		public float? angle;
 		public int lives = 10;
+		public List<Item> inventoryList;
 
 		public Rectangle BoundingBox {
 			get {
@@ -42,6 +44,7 @@ namespace Scratch {
 		public void initialize() {
 			vel = new Vector2(0, 0);
 			pos = new Vector2(0, 0);
+			inventoryList = new List<Item>();
 		}
 
 		public void Update( GameTime gameTime, GraphicsDevice graphDev, bool vert, bool horiz ) {

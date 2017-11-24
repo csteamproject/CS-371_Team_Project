@@ -1,18 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Scratch {
 	public class ItemsOnScreen {
 		Texture2D[] textureArray;
-		Item[] itemArray;
-		int currentIndex = 0;
+		public List<Item> itemArray;
+		int currentIndex = 0, idHold;
+		Random rnd = new Random();
+		Item temp, rem;
 
 		public ItemsOnScreen() {
 		}
 
 		public void initialize( Texture2D[] a ) {
-			itemArray = new Item[10];
+			itemArray = new List<Item>();
 			textureArray = a;
 		}
 
@@ -22,18 +25,26 @@ namespace Scratch {
 					j.Update(gameTime, pAngle, vert, horiz, spd, pPos);
 			}
 
-			Random rnd = new Random();
+
 			if (rnd.Next(1, 10000) % 100 == 0) {
-				itemArray[currentIndex] = new Item(textureArray[rnd.Next(1, 100) % 3], 1, 1);
-				itemArray[currentIndex].initialize(ePos);
+				if (currentIndex >= 20){
+					itemArray.RemoveAt(1);
+					currentIndex--;
+
+				}
+				idHold = rnd.Next(1, 100) % 3;
+				temp = new Item(textureArray[idHold], 1, 1);
+				temp.itemId = idHold;
+				if (currentIndex == 1) rem = temp;
+				itemArray.Add(temp);
+				temp.initialize(ePos);
 				currentIndex++;
-				if (currentIndex >= 10) currentIndex = 0;
 			}
 		}
 
 		public void Draw( SpriteBatch spriteBatch ) {
 			foreach (Item j in itemArray) {
-				if (j != null)
+				if (j != null && j.draw == true)
 					j.Draw(spriteBatch, j.pos);
 			}
 		}

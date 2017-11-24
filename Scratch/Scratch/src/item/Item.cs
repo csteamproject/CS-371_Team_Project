@@ -7,14 +7,42 @@ namespace Scratch {
 	public class Item : AnimatedSprite {
 
 		public Vector2 pos, vel;
-		int xPos, yPos;
+		//int xPos, yPos;
 		float? angleHold = null;
+		public bool draw = true;
+		Texture2D tex;
+		public int itemId;
+
+		public Boolean checkCollision(Player player){
+			if (player.BoundingBox.Intersects(this.BoundingBox) || this.BoundingBox.Intersects(player.BoundingBox)){
+				//this.startFrame = EAT_PLAYER_START_FRAME;
+				//this.endFrame = EAT_PLAYER_END_FRAME;
+				return true;
+			}
+			return false;
+		}
 
 		public Item( Texture2D texture, int row, int column ) : base(texture, row, column) {
 		}
 		public void initialize( Vector2 ePos ) {
 			pos.X = ePos.X;
 			pos.Y = ePos.Y;
+			tex = Texture;
+			itemId = 0;
+		}
+
+		public Rectangle BoundingBox
+		{
+			get
+			{
+				return new Rectangle(
+					(int)pos.X + 10,
+					(int)pos.Y - 50,
+						20,
+						20);
+				//tex.Width/2,
+				//tex.Height/2);
+			}
 		}
 
 		public void Update( GameTime gameTime, float? playerAngle, bool vert, bool horiz, float spd, Vector2 pPos ) {

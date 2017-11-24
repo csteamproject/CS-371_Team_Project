@@ -83,6 +83,14 @@ namespace Scratch {
 						player.pos.Y = rnd.Next(500);
 					}
 				}
+				foreach (Item itItem in items.itemArray){
+					if (itItem.checkCollision(player)){
+						player.inventoryList.Add(itItem);
+						//item.pos.X = rnd.Next(500);
+						//item.pos.Y = rnd.Next(500);
+						itItem.draw = false;
+					}
+				}
 
 				player.Update(gameTime, this.GraphicsDevice, myMap.camMoveVert, myMap.camMoveHoriz);
 

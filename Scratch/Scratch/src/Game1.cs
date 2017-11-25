@@ -19,8 +19,9 @@ namespace Scratch {
 		private ItemsOnScreen items;
 		Vector2 enemyP;
 
-		
-		static int squaresAcross = 17;
+        private src.Bullet bullet;
+
+        static int squaresAcross = 17;
 		static int squaresDown = 37;
 
 		TileMap myMap = new TileMap(squaresDown, squaresAcross);
@@ -49,11 +50,14 @@ namespace Scratch {
 				Content.Load<Texture2D>("hammer2") };
             Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
             Texture2D lightAura = Content.Load<Texture2D>(@"lightaura");
+            Texture2D bulletTexture = Content.Load<Texture2D>("bullet");
             myMap.lightAuracreate(Content);
             items = new ItemsOnScreen();
 			player = new Player(playerTexture, 4, 4);
 			items.initialize(itemTextureArray);
-			player.initialize();
+            bullet = new src.Bullet(bulletTexture);
+            player.Bulletcreate(bulletTexture);
+            player.initialize();
 			Enemy.LoadContent(Content, rnd, zombies);
 		}
 
@@ -113,7 +117,8 @@ namespace Scratch {
 					enemy.Draw(spriteBatch, enemy.ePos);
 				}
 				player.Draw(spriteBatch, player.pos);
-				base.Draw(gameTime);
+                player.DrawBullet(spriteBatch);
+                base.Draw(gameTime);
 
 
 			}

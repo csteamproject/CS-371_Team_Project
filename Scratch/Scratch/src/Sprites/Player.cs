@@ -25,7 +25,8 @@ namespace Scratch {
 		public List<Item> inventoryList;
 
         //bullet stuff
-        Texture2D texture, bulletTexture;
+        public float? lastAngle = null;
+        Texture2D bulletTexture;
         public float bulletDelay;
         public List<src.Bullet> bulletList;
 
@@ -59,9 +60,9 @@ namespace Scratch {
                 b.Draw(spriteBatch);
         }
 
-        public void initialize() {
+        public void Initialize() {
 			vel = new Vector2(0, 0);
-			pos = new Vector2(0, 0);
+			pos = new Vector2(this.tex.Width/2, this.tex.Height/2); //possible fix to the player position box
 			inventoryList = new List<Item>();
 		}
 
@@ -120,9 +121,15 @@ namespace Scratch {
             //bullet things
             if (keys.IsKeyDown(Keys.Space)){
 
-                shoot(angle);
+                if (angle == null)
+                    shoot(lastAngle);
+                else
+                    shoot(angle);
             }
             UpdateBullet(angle);
+
+            if(angle != null)
+                lastAngle = angle; //catch last know angle of player
 
             base.Update(gameTime);
 		}
@@ -137,6 +144,7 @@ namespace Scratch {
 
                 src.Bullet newBullet = new src.Bullet(bulletTexture);
                 newBullet.position = new Vector2(pos.X, pos.Y);
+                newBullet.orgin = new Vector2(pos.X, pos.Y);
                 newBullet.angle = angle;
                 newBullet.isVisibile = true;
 
@@ -155,6 +163,7 @@ namespace Scratch {
             //for each bullet in bullet list update pos and do things
             foreach (src.Bullet b in bulletList){
 
+                
                 //setting movement
                 if (b.angle == 0)//d key
                     b.position.X = b.position.X + b.speed;
@@ -164,7 +173,7 @@ namespace Scratch {
                     b.position.Y = b.position.Y - b.speed;
                 if (b.angle == MathHelper.PiOver2)
                     b.position.Y = b.position.Y + b.speed;
-                if (Math.Abs(b.position.Y) >= 600 || Math.Abs(b.position.X) >= 600)
+                if (Math.Abs(b.position.Y - b.orgin.Y) >= 600 || Math.Abs(b.position.X - b.orgin.X) >= 600) //corrected bullet destroy logic to take into account the orgin point of the bullet
                     b.isVisibile = false;
             }
 

@@ -57,7 +57,7 @@ namespace Scratch {
 			items.initialize(itemTextureArray);
             bullet = new src.Bullet(bulletTexture);
             player.Bulletcreate(bulletTexture);
-            player.initialize();
+            player.Initialize();
 			Enemy.LoadContent(Content, rnd, zombies);
 		}
 

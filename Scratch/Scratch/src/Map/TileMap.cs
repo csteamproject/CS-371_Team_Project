@@ -208,8 +208,8 @@ namespace Scratch {
 			}
             spriteBatch.Draw(lightAura,
                 new Rectangle(
-                    (int)player.pos.X - (lightAura.Width / 2),
-                    (int)player.pos.Y - (lightAura.Height / 2),
+                    (int)player.pos.X - lightAura.Width/2,
+                    (int)player.pos.Y - lightAura.Height/2,
                     lightAura.Width, lightAura.Height),
                     Color.White);
         }//end draw

@@ -32,12 +32,6 @@ C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Pr
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\media\background.ogg
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\media\background.xnb
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\lightaura.xnb
-C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.csprojResolveAssemblyReference.cache
-C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.csproj.CoreCompileInputs.cache
-C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.exe
-C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.pdb
-C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\font.xnb
-C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\resume.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\x64\libopenal.so.1
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\x64\soft_oal.dll
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\x64\libSDL2-2.0.so.0
@@ -49,7 +43,9 @@ C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\x86
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\MonoGame.Framework.dll.config
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\libopenal.1.dylib
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\libSDL2-2.0.0.dylib
+C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\bullet.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\exit.xnb
+C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\font.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\gameover2.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\gem4.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\hammer1.xnb
@@ -60,6 +56,7 @@ C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Con
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\MapSprite2.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\piskel2.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\player.xnb
+C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\resume.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\sprite1.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\start.xnb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\zombie_0.xnb
@@ -68,4 +65,6 @@ C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Con
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Scratch.exe
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Scratch.pdb
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\MonoGame.Framework.dll
-C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Content\bullet.xnb
+C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.csproj.CoreCompileInputs.cache
+C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.exe
+C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.pdb

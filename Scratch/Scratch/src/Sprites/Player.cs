@@ -129,7 +129,7 @@ namespace Scratch {
             UpdateBullet(angle);
 
             if(angle != null)
-                lastAngle = angle; //catch last know angle of player
+                lastAngle = angle; //catch last know angle of player to fix bullet dropping in place
 
             base.Update(gameTime);
 		}

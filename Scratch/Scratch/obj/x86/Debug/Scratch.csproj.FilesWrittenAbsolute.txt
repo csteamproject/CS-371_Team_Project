@@ -270,3 +270,5 @@
 /home/vm3/Documents/projectfiles/itemcollision/CS-371_Team_Project/Scratch/Scratch/obj/x86/Debug/Scratch.exe
 /home/vm3/Documents/projectfiles/itemcollision/CS-371_Team_Project/Scratch/Scratch/obj/x86/Debug/Scratch.pdb
 /home/vm3/Documents/projectfiles/itemcollision/CS-371_Team_Project/Scratch/Scratch/bin/Debug/MonoGame.Framework.dll
+/home/vray/testGame/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/bullet.xnb
+/home/vray/testGame/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/lightaura.xnb

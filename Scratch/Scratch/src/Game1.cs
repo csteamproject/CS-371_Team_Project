@@ -109,9 +109,11 @@ namespace Scratch {
 			} else if (gameScreen.gameState == menuScreen.GameState.EndMenu) {
 				gameScreen.EndDraw(graphics, spriteBatch);
 			} else {
+				if (gameScreen.gameState == menuScreen.GameState.Paused) {
+					gameScreen.ResumeDraw (graphics, spriteBatch);
+				} else
 
-
-				myMap.Draw(graphics, spriteBatch, player);
+					myMap.Draw(graphics, spriteBatch, player);
 				items.Draw(spriteBatch);
 				foreach (Enemy enemy in zombies) {
 					enemy.Draw(spriteBatch, enemy.ePos);

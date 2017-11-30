@@ -68,3 +68,6 @@ C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\bin\Debug\Mon
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.csproj.CoreCompileInputs.cache
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.exe
 C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug\Scratch.pdb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\font.xnb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\resume.xnb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\bullet.xnb

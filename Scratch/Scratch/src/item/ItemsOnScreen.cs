@@ -32,7 +32,7 @@ namespace Scratch {
 					currentIndex--;
 
 				}
-				idHold = rnd.Next(1, 100) % 3;
+				idHold = rnd.Next(1, 100) % textureArray.Length;
 				temp = new Item(textureArray[idHold], 1, 1);
 				temp.itemId = idHold;
 				if (currentIndex == 1) rem = temp;
@@ -42,7 +42,7 @@ namespace Scratch {
 			}
 		}
 
-		public void Draw( SpriteBatch spriteBatch ) {
+		public void Draw( SpriteBatch spriteBatch) {
 			foreach (Item j in itemArray) {
 				if (j != null && j.draw == true)
 					j.Draw(spriteBatch, j.pos);

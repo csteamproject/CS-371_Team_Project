@@ -14,7 +14,7 @@ namespace Scratch {
 		private readonly int DEFAULT_WALK_START_FRAME = 5, DEFAULT_WALK_END_FRAME = 11,
 									  		  EAT_PLAYER_START_FRAME = 12, EAT_PLAYER_END_FRAME = 22;
 
-		public Rectangle BoundingBox { get { return new Rectangle( (int)ePos.X, (int)ePos.Y, 5, 5); } }
+		public Rectangle BoundingBox { get { return new Rectangle( (int)ePos.X+40, (int)ePos.Y+50, 45, 50); } }
 
 		public Enemy( Texture2D texture, int row, int column, int speed, int health, int millisecondsPerFrame ) : base(texture, row, column) {
 			this.speed = speed;
@@ -49,7 +49,7 @@ namespace Scratch {
 		}
 
 		public static void randomSpawn( List<Enemy> zombies, Random rnd, ContentManager Content ) {
-			if (zombies.Count < 500 && rnd.Next(1, 100) == 1) {
+			if (zombies.Count < 10 && rnd.Next(1, 100) == 1) {
 				zombies.Add(new Enemy(Content.Load<Texture2D>("zombie_0"), 8, 36, rnd.Next(5, 50), 5, 90));
 				int zombieCount = zombies.Count - 1;
 				zombies[zombieCount].initialize(rnd);

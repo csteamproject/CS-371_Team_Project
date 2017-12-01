@@ -30,17 +30,8 @@ namespace Scratch {
         public float bulletDelay;
         public List<src.Bullet> bulletList;
 
-        public Rectangle BoundingBox {
-			get {
-				return new Rectangle(
-					(int)pos.X,
-					(int)pos.Y - 52,
-					5,
-					5);
-				//	tex.Width,
-				//	tex.Height);
-			}
-		}
+		//tex.Width,//tex.Height);
+        public Rectangle BoundingBox {get {return new Rectangle((int)pos.X+5,(int)pos.Y,40,50);}}
 
 
 		public Player( Texture2D texture, int row, int column ) : base(texture, row, column) {

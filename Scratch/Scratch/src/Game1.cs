@@ -45,12 +45,12 @@ namespace Scratch {
 			gameScreen.LoadContent(Content);
 			Texture2D playerTexture = Content.Load<Texture2D>("player");
 			Texture2D itemTexture = Content.Load<Texture2D>("hammer1");
-			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("piskel2"),
-				Content.Load<Texture2D>("gem4"), Content.Load<Texture2D>("hammer5"),
-				Content.Load<Texture2D>("hammer2") };
+			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("cloth"),
+				Content.Load<Texture2D>("string"), Content.Load<Texture2D>("gunpowder"),
+				Content.Load<Texture2D>("ointment") };
             Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
             Texture2D lightAura = Content.Load<Texture2D>(@"lightaura");
-            Texture2D bulletTexture = Content.Load<Texture2D>("bullet");
+            Texture2D bulletTexture = Content.Load<Texture2D>("projectile2");
             myMap.lightAuracreate(Content);
             items = new ItemsOnScreen();
 			player = new Player(playerTexture, 4, 4);
@@ -128,3 +128,13 @@ namespace Scratch {
 		}
 	}
 }
+
+// BoundingBox test code
+//Texture2D rect = new Texture2D(graphics.GraphicsDevice, player.BoundingBox.Width, player.BoundingBox.Height);
+
+//Color[] data = new Color[player.BoundingBox.Width * player.BoundingBox.Height];
+//				for (int i = 0; i<data.Length; ++i) data[i] = Color.Chocolate;
+//				rect.SetData(data);
+
+//				Vector2 coor = new Vector2(player.BoundingBox.X, player.BoundingBox.Y);
+//spriteBatch.Draw(rect, coor, Color.White);

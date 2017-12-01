@@ -31,19 +31,8 @@ namespace Scratch {
 			itemId = 0;
 		}
 
-		public Rectangle BoundingBox
-		{
-			get
-			{
-				return new Rectangle(
-					(int)pos.X + 10,
-					(int)pos.Y - 50,
-						20,
-						20);
-				//tex.Width/2,
-				//tex.Height/2);
-			}
-		}
+		//tex.Width/2,//tex.Height/2);
+		public Rectangle BoundingBox{get{return new Rectangle((int)pos.X,(int)pos.Y,20,20);}}
 
 		public void Update( GameTime gameTime, float? playerAngle, bool vert, bool horiz, float spd, Vector2 pPos ) {
 			float? angle = null;

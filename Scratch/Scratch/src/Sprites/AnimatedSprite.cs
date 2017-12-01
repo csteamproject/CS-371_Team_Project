@@ -5,7 +5,7 @@
  * columns can be specified for spritesheets using public variables row
  * and column.
 */
-
+using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
@@ -15,6 +15,9 @@ namespace Scratch {
 		public Texture2D Texture { get; set; }
 		private int Rows; private int Columns;
 		public int row { get; set; }
+		private Vector2 pos;
+		Random rnd = new Random();
+//		public Rectangle BoundingBox{get{ if (pos == null) return new Rectangle(rnd.Next(1, 5000), rnd.Next(1, 5000), 5, 5); return new Rectangle((int)pos.X + 10, (int)pos.Y - 50, 20, 20);}}
 
 		/*StopFrame is intended to work as a boolean value, if the player or enemy has stopped the row
 		which rendered the last animation is used and the first image is displayed. */
@@ -65,8 +68,9 @@ namespace Scratch {
 
 			Rectangle sourceRectangle = new Rectangle(width * stopFrame, height * row, width, height);
 			Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-			
+
 			spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+
 		}
 	}
 }

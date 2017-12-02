@@ -71,3 +71,9 @@ C:\Users\Mark\Documents\CS-371_Team_Projecttesting\Scratch\Scratch\obj\x86\Debug
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\font.xnb
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\resume.xnb
 C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\bullet.xnb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\cloth.xnb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\gunpowder.xnb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\ointment.xnb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\projectile.xnb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\projectile2.xnb
+C:\Users\Christian\Desktop\Google_Drive\Classcodefiles\NMSU-CS371\CS-371_Team_Project\Scratch\Scratch\bin\Debug\Content\string.xnb

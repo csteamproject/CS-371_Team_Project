@@ -21,7 +21,7 @@ namespace Scratch {
 		int width = 900;
 		int height = 625;
 		public float? angle;
-		public int lives = 10;
+		public int health = 100;
 		public List<Item> inventoryList;
 
         //bullet stuff
@@ -33,7 +33,6 @@ namespace Scratch {
 		//tex.Width,//tex.Height);
         public Rectangle BoundingBox {get {return new Rectangle((int)pos.X+5,(int)pos.Y,40,50);}}
 
-
 		public Player( Texture2D texture, int row, int column ) : base(texture, row, column) {
 			tex = texture;
             bulletList = new List<src.Bullet>();
@@ -41,12 +40,10 @@ namespace Scratch {
         }
 
         public void Bulletcreate(Texture2D texture){
-
             bulletTexture = texture;
         }
 
         public void DrawBullet(SpriteBatch spriteBatch){
-
             foreach (src.Bullet b in bulletList)
                 b.Draw(spriteBatch);
         }
@@ -111,14 +108,13 @@ namespace Scratch {
 			}
             //bullet things
             if (keys.IsKeyDown(Keys.Space)){
-
                 if (angle == null)
                     shoot(lastAngle);
                 else
                     shoot(angle);
             }
-            UpdateBullet(angle);
 
+            UpdateBullet(angle);
             if(angle != null)
                 lastAngle = angle; //catch last know angle of player to fix bullet dropping in place
 
@@ -150,10 +146,9 @@ namespace Scratch {
 
         //update bullet
         public void UpdateBullet(float? angle){
-
+			
             //for each bullet in bullet list update pos and do things
             foreach (src.Bullet b in bulletList){
-
                 
                 //setting movement
                 if (b.angle == 0)//d key
@@ -170,9 +165,7 @@ namespace Scratch {
 
             //check to dissapear bullet
             for (int i = 0; i < bulletList.Count; i++){
-
                 if (!bulletList[i].isVisibile){
-
                     bulletList.RemoveAt(i);
                     i--;
                 }

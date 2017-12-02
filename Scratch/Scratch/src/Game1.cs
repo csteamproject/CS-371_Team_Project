@@ -19,11 +19,9 @@ namespace Scratch {
 		private ItemsOnScreen items;
 		Vector2 enemyP;
 
-        private src.Bullet bullet;
+       private src.Bullet bullet;
 
-        static int squaresAcross = 17;
-		static int squaresDown = 37;
-
+		static int squaresAcross = 17; static int squaresDown = 37;
 		TileMap myMap = new TileMap(squaresDown, squaresAcross);
 
 		menuScreen gameScreen = new menuScreen();
@@ -48,32 +46,30 @@ namespace Scratch {
 			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("cloth"),
 				Content.Load<Texture2D>("string"), Content.Load<Texture2D>("gunpowder"),
 				Content.Load<Texture2D>("ointment") };
-            Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
-            Texture2D lightAura = Content.Load<Texture2D>(@"lightaura");
-            Texture2D bulletTexture = Content.Load<Texture2D>("projectile2");
-            myMap.lightAuracreate(Content);
-            items = new ItemsOnScreen();
+			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
+			Texture2D lightAura = Content.Load<Texture2D>(@"lightaura");
+			Texture2D bulletTexture = Content.Load<Texture2D>("projectile2");
+			myMap.lightAuracreate(Content);
+			items = new ItemsOnScreen();
 			player = new Player(playerTexture, 4, 4);
 			items.initialize(itemTextureArray);
-            bullet = new src.Bullet(bulletTexture);
-            player.Bulletcreate(bulletTexture);
-            player.Initialize();
+			bullet = new src.Bullet(bulletTexture);
+			player.Bulletcreate(bulletTexture);
+			player.Initialize();
 			Enemy.LoadContent(Content, rnd, zombies);
 		}
 
-        protected override void Update( GameTime gameTime ) {
+		protected override void Update( GameTime gameTime ) {
 
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
-
 			gameScreen.Update();
 			if (gameScreen.gameState == menuScreen.GameState.Playing && IsActive) {
-				// TODO: Add your update logic here
 
 				Enemy.randomSpawn(zombies, rnd, Content);
 
 				foreach (Enemy enemy in zombies) {
-					if (enemy.isVisible){
+					if (enemy.isVisible) {
 						enemy.Update(gameTime, player.pos, myMap.camMoveVert, myMap.camMoveHoriz);
 						if (rnd.Next(1, 100) % 2 == 1) enemyP = enemy.ePos;
 						else enemyP = enemy.ePos;
@@ -81,36 +77,33 @@ namespace Scratch {
 						base.Update(gameTime);
 						myMap.Update(gameTime, player.pos, this.GraphicsDevice, player);
 
-						if (enemy.isVisible && enemy.checkCollision(player))
-						{
-							player.lives--;
-							player.pos.X = rnd.Next(500);
-							player.pos.Y = rnd.Next(500);
+						if (enemy.isVisible && enemy.checkCollision(player)) {
+							player.health -= 10;
+							if (player.health == 0) {
+								gameScreen.gameState = menuScreen.GameState.EndMenu;
+							}
 						}
 
 						foreach (src.Bullet b in player.bulletList)
-							if (enemy.checkBulletCollision(b)){
+							if (enemy.checkBulletCollision(b)) {
 								enemy.isVisible = false;
 								items.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos, enemyP, true);
 								enemiesDefeated++;
 							}
+
+						if (enemiesDefeated >= Enemy.totalZombieCount - 1) Enemy.totalZombieCount = (Enemy.totalZombieCount * 2) + Enemy.totalZombieCount;
 					}
 
-					if (enemiesDefeated >= Enemy.totalZombieCount - 1) Enemy.totalZombieCount = (Enemy.totalZombieCount * 2) + Enemy.totalZombieCount;
-				}
-
-				foreach (Item itItem in items.itemArray){
-					if (itItem.checkCollision(player)){
-						player.inventoryList.Add(itItem);
-						//item.pos.X = rnd.Next(500);
-						//item.pos.Y = rnd.Next(500);
-						itItem.isVisible = false;
+					foreach (Item itItem in items.itemArray) {
+						if (itItem.checkCollision(player)) {
+							player.inventoryList.Add(itItem);
+							//item.pos.X = rnd.Next(500);
+							//item.pos.Y = rnd.Next(500);
+							itItem.isVisible = false;
+						}
 					}
+					player.Update(gameTime, this.GraphicsDevice, myMap.camMoveVert, myMap.camMoveHoriz);
 				}
-
-				player.Update(gameTime, this.GraphicsDevice, myMap.camMoveVert, myMap.camMoveHoriz);
-
-				
 			}
 		}
 
@@ -122,7 +115,7 @@ namespace Scratch {
 				gameScreen.EndDraw(graphics, spriteBatch);
 			} else {
 				if (gameScreen.gameState == menuScreen.GameState.Paused) {
-					gameScreen.ResumeDraw (graphics, spriteBatch);
+					gameScreen.ResumeDraw(graphics, spriteBatch);
 				} else
 
 					myMap.Draw(graphics, spriteBatch, player);
@@ -131,9 +124,8 @@ namespace Scratch {
 					if (enemy.isVisible) enemy.Draw(spriteBatch, enemy.ePos);
 				}
 				player.Draw(spriteBatch, player.pos);
-                player.DrawBullet(spriteBatch);
-                base.Draw(gameTime);
-
+				player.DrawBullet(spriteBatch);
+				base.Draw(gameTime);
 
 			}
 			spriteBatch.End();

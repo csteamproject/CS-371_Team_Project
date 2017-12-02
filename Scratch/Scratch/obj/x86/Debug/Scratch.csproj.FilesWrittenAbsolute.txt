@@ -315,6 +315,7 @@
 /home/vm3/Documents/projectfiles/newitems/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/ointment.xnb
 /home/vm3/Documents/projectfiles/newitems/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/projectile.xnb
 /home/vm3/Documents/projectfiles/newitems/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/projectile2.xnb
+<<<<<<< Updated upstream
 /home/vm3/Documents/projectfiles/bulletcollision4/CS-371_Team_Project/Scratch/Scratch/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
 /home/vm3/Documents/projectfiles/bulletcollision4/CS-371_Team_Project/Scratch/Scratch/obj/x86/Debug/Scratch.Icon.ico
 /home/vm3/Documents/projectfiles/bulletcollision4/CS-371_Team_Project/Scratch/Scratch/bin/Debug/x64/libopenal.so.1
@@ -358,3 +359,37 @@
 /home/vm3/Documents/projectfiles/bulletcollision4/CS-371_Team_Project/Scratch/Scratch/obj/x86/Debug/Scratch.exe
 /home/vm3/Documents/projectfiles/bulletcollision4/CS-371_Team_Project/Scratch/Scratch/obj/x86/Debug/Scratch.pdb
 /home/vm3/Documents/projectfiles/bulletcollision4/CS-371_Team_Project/Scratch/Scratch/bin/Debug/MonoGame.Framework.dll
+=======
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/bullet.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/cloth.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/gunpowder.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/lightaura.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/ointment.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/projectile.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/projectile2.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/string.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/bullet.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/cloth.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/gem4.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/gunpowder.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/hammer1.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/hammer2.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/hammer5.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/ointment.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/piskel2.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/projectile.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/items/projectile2.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/menus/exit.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/menus/gameover2.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/menus/resume.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/menus/start.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/sprites/MapSprite.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/sprites/MapSprite2.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/sprites/font.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/sprites/lightaura.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/sprites/player.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/sprites/sprite1.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/sprites/spriteFont.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/sprites/zombie_0.xnb
+/home/robert/Projects/TestProjects/CS-371_Team_Project/Scratch/Scratch/bin/Debug/Content/menus/generatedtext.xnb
+>>>>>>> Stashed changes

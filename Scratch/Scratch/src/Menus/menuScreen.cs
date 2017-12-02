@@ -29,7 +29,7 @@ namespace Scratch {
 		public void Initialize(GraphicsDeviceManager graphics){
 			startButtonPos = new Vector2((graphics.GraphicsDevice.Viewport.Width / 2) - 400, 200);
 			exitButtonPos = new Vector2((graphics.GraphicsDevice.Viewport.Width / 2) - 50, 200);
-			endButtonPos = new Vector2((graphics.GraphicsDevice.Viewport.Width / 2), 200);
+			endButtonPos = new Vector2((graphics.GraphicsDevice.Viewport.Width / 2) - 250, 200);
 			resumeButtonPos = new Vector2((graphics.GraphicsDevice.Viewport.Width / 2), 100);
 			fontPos = new Vector2 (0, 100); 
 			gameState = GameState.StartMenu;
@@ -38,7 +38,7 @@ namespace Scratch {
 		public void LoadContent(ContentManager Content){
 			startButton = Content.Load<Texture2D>("start");
 			exitButton = Content.Load<Texture2D>("exit");
-			endButton = Content.Load<Texture2D>("gameover2");
+			endButton = Content.Load<Texture2D>("menus/generatedtext");
 			resumeButton = Content.Load<Texture2D>("resume");
 			font = Content.Load<SpriteFont> ("font");
 			backGround = Content.Load<Song>("media/background");
@@ -87,7 +87,7 @@ namespace Scratch {
 		}
 
 		public void EndDraw(GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
-			graphics.GraphicsDevice.Clear(Color.Crimson);
+			graphics.GraphicsDevice.Clear(Color.Black);
 			spriteBatch.Draw(endButton, endButtonPos, Color.White);
 			string text = "Push enter to play\n(a-s-w-d) player movement\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Black);

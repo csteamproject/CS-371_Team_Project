@@ -9,7 +9,7 @@ namespace Scratch {
 		public Vector2 pos, vel;
 		//int xPos, yPos;
 		float? angleHold = null;
-		public bool draw = true;
+		public bool isVisible = true;
 		Texture2D tex;
 		public int itemId;
 

@@ -12,7 +12,7 @@ namespace Scratch {
 		SpriteBatch spriteBatch;
 
 		private List<Enemy> zombies = new List<Enemy>();
-
+		private int enemiesDefeated = 0;
 		Random rnd = new Random();
 
 		private Player player;
@@ -73,26 +73,38 @@ namespace Scratch {
 				Enemy.randomSpawn(zombies, rnd, Content);
 
 				foreach (Enemy enemy in zombies) {
-					enemy.Update(gameTime, player.pos, myMap.camMoveVert, myMap.camMoveHoriz);
-					if (rnd.Next(1, 100) % 2 == 1) enemyP = enemy.ePos;
-					else enemyP = enemy.ePos;
-					items.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos, enemyP);
+					if (enemy.isVisible){
+						enemy.Update(gameTime, player.pos, myMap.camMoveVert, myMap.camMoveHoriz);
+						if (rnd.Next(1, 100) % 2 == 1) enemyP = enemy.ePos;
+						else enemyP = enemy.ePos;
+						items.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos, enemyP, false);
+						base.Update(gameTime);
+						myMap.Update(gameTime, player.pos, this.GraphicsDevice, player);
 
-					base.Update(gameTime);
-					myMap.Update(gameTime, player.pos, this.GraphicsDevice, player);
+						if (enemy.isVisible && enemy.checkCollision(player))
+						{
+							player.lives--;
+							player.pos.X = rnd.Next(500);
+							player.pos.Y = rnd.Next(500);
+						}
 
-					if (enemy.checkCollision(player)) {
-						player.lives--;
-						player.pos.X = rnd.Next(500);
-						player.pos.Y = rnd.Next(500);
+						foreach (src.Bullet b in player.bulletList)
+							if (enemy.checkBulletCollision(b)){
+								enemy.isVisible = false;
+								items.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos, enemyP, true);
+								enemiesDefeated++;
+							}
 					}
+
+					if (enemiesDefeated >= Enemy.totalZombieCount - 1) Enemy.totalZombieCount = (Enemy.totalZombieCount * 2) + Enemy.totalZombieCount;
 				}
+
 				foreach (Item itItem in items.itemArray){
 					if (itItem.checkCollision(player)){
 						player.inventoryList.Add(itItem);
 						//item.pos.X = rnd.Next(500);
 						//item.pos.Y = rnd.Next(500);
-						itItem.draw = false;
+						itItem.isVisible = false;
 					}
 				}
 
@@ -116,7 +128,7 @@ namespace Scratch {
 					myMap.Draw(graphics, spriteBatch, player);
 				items.Draw(spriteBatch);
 				foreach (Enemy enemy in zombies) {
-					enemy.Draw(spriteBatch, enemy.ePos);
+					if (enemy.isVisible) enemy.Draw(spriteBatch, enemy.ePos);
 				}
 				player.Draw(spriteBatch, player.pos);
                 player.DrawBullet(spriteBatch);

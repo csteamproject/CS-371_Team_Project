@@ -19,18 +19,17 @@ namespace Scratch {
 			textureArray = a;
 		}
 
-		public void Update( GameTime gameTime, float? pAngle, bool vert, bool horiz, float spd, Vector2 pPos, Vector2 ePos ) {
+		public void Update( GameTime gameTime, float? pAngle, bool vert, bool horiz, float spd, Vector2 pPos, Vector2 ePos, bool itemDrop ) {
 			foreach (Item j in itemArray) {
-				if (j != null)
+				if (j != null && j.isVisible)
 					j.Update(gameTime, pAngle, vert, horiz, spd, pPos);
 			}
 
 
-			if (rnd.Next(1, 10000) % 100 == 0) {
+			if (itemDrop && rnd.Next(1, 10000) % 2 == 0) {
 				if (currentIndex >= 20){
 					itemArray.RemoveAt(1);
 					currentIndex--;
-
 				}
 				idHold = rnd.Next(1, 100) % textureArray.Length;
 				temp = new Item(textureArray[idHold], 1, 1);
@@ -44,7 +43,7 @@ namespace Scratch {
 
 		public void Draw( SpriteBatch spriteBatch) {
 			foreach (Item j in itemArray) {
-				if (j != null && j.draw == true)
+				if (j != null && j.isVisible == true)
 					j.Draw(spriteBatch, j.pos);
 			}
 		}

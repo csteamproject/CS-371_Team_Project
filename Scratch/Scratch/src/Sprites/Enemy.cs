@@ -11,6 +11,8 @@ namespace Scratch {
 		int health { get; set; }
 		public Vector2 ePos, eVel;
 		double a, b, yOffset = 52;
+		public bool isVisible = true;
+		public static int totalZombieCount = 10;
 		private readonly int DEFAULT_WALK_START_FRAME = 5, DEFAULT_WALK_END_FRAME = 11,
 									  		  EAT_PLAYER_START_FRAME = 12, EAT_PLAYER_END_FRAME = 22;
 
@@ -40,6 +42,13 @@ namespace Scratch {
 			return false;
 		}
 
+		public Boolean checkBulletCollision(src.Bullet bullet){
+			if (bullet.BoundingBox.Intersects(this.BoundingBox) || this.BoundingBox.Intersects(bullet.BoundingBox)){
+				return true;
+			}
+			return false;
+		}
+
 		public static void LoadContent(ContentManager Content, Random rnd, List<Enemy> zombies) {
 			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
 			for (int i = 0; i < 1; i++) {
@@ -49,7 +58,7 @@ namespace Scratch {
 		}
 
 		public static void randomSpawn( List<Enemy> zombies, Random rnd, ContentManager Content ) {
-			if (zombies.Count < 10 && rnd.Next(1, 100) == 1) {
+			if (zombies.Count < totalZombieCount && rnd.Next(1, 100) == 1) {
 				zombies.Add(new Enemy(Content.Load<Texture2D>("zombie_0"), 8, 36, rnd.Next(5, 50), 5, 90));
 				int zombieCount = zombies.Count - 1;
 				zombies[zombieCount].initialize(rnd);

@@ -20,6 +20,8 @@ namespace Scratch.src{
         public float speed;
         public float? angle;
 
+		public Rectangle BoundingBox { get { return new Rectangle((int)position.X + 10, (int)position.Y + 10, 10, 10); } }
+
         //contructorrr
         public Bullet(Texture2D newtexture){
             speed = 10;

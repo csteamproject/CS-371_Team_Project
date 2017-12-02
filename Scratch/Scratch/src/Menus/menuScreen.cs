@@ -75,21 +75,21 @@ namespace Scratch {
 			graphics.GraphicsDevice.Clear(Color.Crimson);
 			spriteBatch.Draw(startButton, startButtonPos, Color.White);
 			spriteBatch.Draw(exitButton, exitButtonPos, Color.White);
-			string text = "Push enter to play, (a-s-w-d) player movement, p to pause, space to fire bullet";
+			string text = "Push enter to play\n(a-s-w-d) player movement\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Black);
 		}
 
 		public void ResumeDraw (GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
 			graphics.GraphicsDevice.Clear (Color.Crimson);
 			spriteBatch.Draw (resumeButton, resumeButtonPos, Color.White);
-			string text = "Push r to resume play";
+			string text = "Push r to resume\n(a-s-w-d) player movement\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Black);
 		}
 
 		public void EndDraw(GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
 			graphics.GraphicsDevice.Clear(Color.Crimson);
 			spriteBatch.Draw(endButton, endButtonPos, Color.White);
-			string text = "Push enter to play again, (a-s-w-d) player movement, p to pause, space to fire bullet";
+			string text = "Push enter to play\n(a-s-w-d) player movement\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Black);
 		}
 	}

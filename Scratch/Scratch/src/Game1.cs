@@ -32,95 +32,6 @@ namespace Scratch {
 
 		menuScreen gameScreen = new menuScreen();
 
-		public void CombineItems(){
-			if (Keyboard.GetState().IsKeyDown(Keys.C)){
-
-				if (itemIdCountList[0] != 0 && itemIdCountList[1] != 0){
-					Item combinedItem = new Item(combinedItemTextureArray[0], 1, 1, 4);
-					player.combinedInventoryList.Add(combinedItem);
-					int i = 0;
-					foreach (Item item in player.inventoryList){
-						if (item.itemId == 0){
-							player.inventoryList.RemoveAt(i);
-							break;
-						}
-						i++;
-					}
-					i = 0;
-					foreach (Item item in player.inventoryList){
-						if (item.itemId == 1){
-							player.inventoryList.RemoveAt(i);
-							break;
-						}
-						i++;
-					}
-
-				}
-
-				if (itemIdCountList[2] != 0 && itemIdCountList[3] != 0){
-
-					Item combinedItem = new Item(combinedItemTextureArray[0], 1, 1, 5);
-					player.combinedInventoryList.Add(combinedItem);
-					int i = 0;
-					foreach (Item item in player.inventoryList){
-						if (item.itemId == 2){
-							player.inventoryList.RemoveAt(i);
-							break;
-						}
-						i++;
-					}
-					i = 0;
-					foreach (Item item in player.inventoryList){
-						if (item.itemId == 3){
-							player.inventoryList.RemoveAt(i);
-							break;
-						}
-						i++;
-					}
-
-				}
-
-			}
-		}
-
-		public void UseFirstAid(){
-			if (Keyboard.GetState().IsKeyDown(Keys.F)){
-				int count = 0;
-				bool found = false;
-				foreach (Item item in player.combinedInventoryList){
-					if (item.itemId == 4){
-						found = true;
-						break;
-					}
-					else count++;
-				}
-
-				if (found){
-					player.health = player.health + 100;
-					player.combinedInventoryList.RemoveAt(count);
-				}
-			}
-		}
-
-		public void DropMine(){
-			if (Keyboard.GetState().IsKeyDown(Keys.E)){
-				int count = 0;
-				bool found = false;
-				foreach (Item item in player.combinedInventoryList){
-					if (item.itemId == 5){
-						found = true;
-						break;
-					}
-					else count++;
-				}
-
-				if (found){
-					items.PlayerDropItem(player.pos, 5);
-					player.combinedInventoryList.RemoveAt(count);
-				}
-			}
-		}
-
 		public Game1(){
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
@@ -223,9 +134,9 @@ namespace Scratch {
 				}
 				
 
-				CombineItems();
-				UseFirstAid();
-				DropMine();
+				player.crafting.CombineItems(itemIdCountList, combinedItemTextureArray, player.inventoryList, player.combinedInventoryList);
+				player.crafting.UseFirstAid(player.combinedInventoryList, player.health);
+				player.crafting.DropMine(player.combinedInventoryList, player.pos, items);
 				player.Update(gameTime, this.GraphicsDevice, myMap.camMoveVert, myMap.camMoveHoriz);
 
 

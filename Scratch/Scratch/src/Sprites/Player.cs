@@ -24,6 +24,7 @@ namespace Scratch {
 		public int health = 100;
 		public List<Item> inventoryList;
 		public List<Item> combinedInventoryList;
+		public Crafting crafting;
 
         //bullet stuff
         public float? lastAngle = null;
@@ -54,6 +55,7 @@ namespace Scratch {
 			pos = new Vector2(this.tex.Width/2, this.tex.Height/2); //possible fix to the player position box
 			inventoryList = new List<Item>();
 			combinedInventoryList = new List<Item>();
+			crafting = new Crafting();
 		}
 
 		public void Update( GameTime gameTime, GraphicsDevice graphDev, bool vert, bool horiz ) {

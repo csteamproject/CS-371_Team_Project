@@ -51,6 +51,7 @@
     <Compile Include="src\Sprites\Bullet.cs" />
     <Compile Include="src\Sprites\Enemy.cs" />
     <Compile Include="src\Sprites\Player.cs" />
+    <Compile Include="src\item\Crafting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

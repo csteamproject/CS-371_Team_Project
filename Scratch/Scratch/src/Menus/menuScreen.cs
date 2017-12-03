@@ -31,7 +31,7 @@ namespace Scratch {
 			exitButtonPos = new Vector2((graphics.GraphicsDevice.Viewport.Width / 2) - 50, 200);
 			endButtonPos = new Vector2((graphics.GraphicsDevice.Viewport.Width / 2) - 250, 200);
 			resumeButtonPos = new Vector2((graphics.GraphicsDevice.Viewport.Width / 2), 100);
-			fontPos = new Vector2 (0, 100); 
+			fontPos = new Vector2 (10, 10); 
 			gameState = GameState.StartMenu;
 		}
 
@@ -75,21 +75,21 @@ namespace Scratch {
 			graphics.GraphicsDevice.Clear(Color.Crimson);
 			spriteBatch.Draw(startButton, startButtonPos, Color.White);
 			spriteBatch.Draw(exitButton, exitButtonPos, Color.White);
-			string text = "Push enter to play\n(a-s-w-d) player movement\np to pause\nspace to fire bullet\n";
+			string text = "Push enter to play\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\nr to drop mine\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Black);
 		}
 
 		public void ResumeDraw (GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
 			graphics.GraphicsDevice.Clear (Color.Crimson);
 			spriteBatch.Draw (resumeButton, resumeButtonPos, Color.White);
-			string text = "Push r to resume\n(a-s-w-d) player movement\np to pause\nspace to fire bullet\n";
+			string text = "Push r to resume\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\nr to drop mine\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Black);
 		}
 
 		public void EndDraw(GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
 			graphics.GraphicsDevice.Clear(Color.Black);
 			spriteBatch.Draw(endButton, endButtonPos, Color.White);
-			string text = "Push enter to play\n(a-s-w-d) player movement\np to pause\nspace to fire bullet\n";
+			string text = "Push enter to play\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\nr to drop mine\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Black);
 		}
 	}

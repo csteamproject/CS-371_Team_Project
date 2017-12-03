@@ -111,11 +111,24 @@ namespace Scratch {
 			else
 				eVel = new Vector2(0, 0);
 
-			if (vert == true) eVel = new Vector2(eVel.X, (eVel.Y/this.speed)*(-1*(100-this.speed)));
-			if (horiz == true) eVel = new Vector2((eVel.X / this.speed) * (-1 * (100 - this.speed)), eVel.Y);
+			if (vert == true){
+				if(b > 0 && angle > MathHelper.PiOver2/2) eVel = new Vector2(eVel.X, (eVel.Y / this.speed) * (-1 * (100 - this.speed)));
+				if(b < 0 && angle > MathHelper.Pi) eVel = new Vector2(eVel.X, (eVel.Y / this.speed) * (-1 * (100 - this.speed)));
+			}
+			if (horiz == true){
+				if(a > 0 && (angle < MathHelper.PiOver2 || angle > MathHelper.TwoPi)) eVel = new Vector2((eVel.X / this.speed) * (-1 * (100 - this.speed)), eVel.Y);
+				if(a < 0 && angle > MathHelper.Pi) eVel = new Vector2((eVel.X / this.speed) * (-1 * (100 - this.speed)), eVel.Y);
+			}
 
 			ePos = Vector2.Add(ePos, Vector2.Multiply(eVel, (float)gameTime.ElapsedGameTime.TotalSeconds));
 			base.Update(gameTime);
 		}
 	}
 }
+
+//	if (vert == true){
+//				if(b > 0 && angle >= MathHelper.PiOver2) eVel = new Vector2(eVel.X, (eVel.Y / this.speed) * (-1 * (100 - this.speed)));
+//}
+//			if (horiz == true){
+//				if (a > 0 && angle<MathHelper.PiOver2) eVel = new Vector2((eVel.X / this.speed) * (-1 * (100 - this.speed)), eVel.Y);
+//}

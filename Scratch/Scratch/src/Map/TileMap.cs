@@ -89,13 +89,13 @@ namespace Scratch {
 			KeyboardState ks = Keyboard.GetState();
 
 			if (ks.IsKeyDown(Keys.W) && pPos.Y < 110)
-				Camera.Location.Y = MathHelper.Clamp(Camera.Location.Y - 2, 0, (this.MapHeight - squaresDown) * 17);
+				Camera.Location.Y = MathHelper.Clamp(Camera.Location.Y - 0.75f, 0, (this.MapHeight - squaresDown) * 17);
 			if (ks.IsKeyDown(Keys.S) && pPos.Y > graphDev.Viewport.Height - 200)
-				Camera.Location.Y = MathHelper.Clamp(Camera.Location.Y + 2, 0, (this.MapHeight - squaresDown) * 17);
+				Camera.Location.Y = MathHelper.Clamp(Camera.Location.Y + 0.75f, 0, (this.MapHeight - squaresDown) * 17);
 			if (ks.IsKeyDown(Keys.A) && pPos.X < 110)
-				Camera.Location.X = MathHelper.Clamp(Camera.Location.X - 2, 0, (this.MapWidth - squaresAcross) * 37);
+				Camera.Location.X = MathHelper.Clamp(Camera.Location.X - 0.75f, 0, (this.MapWidth - squaresAcross) * 37);
 			if (ks.IsKeyDown(Keys.D) && pPos.X > graphDev.Viewport.Width - 200)
-				Camera.Location.X = MathHelper.Clamp(Camera.Location.X + 2, 0, (this.MapWidth - squaresAcross) * 37);
+				Camera.Location.X = MathHelper.Clamp(Camera.Location.X + 0.75f, 0, (this.MapWidth - squaresAcross) * 37);
 			if (Math.Abs(Camera.Location.X - lastCX) < 0.5f)
 				camMoveHoriz = false;
 			if (Math.Abs(Camera.Location.Y - lastCY) < 0.5f)

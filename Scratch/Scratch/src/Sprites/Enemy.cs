@@ -49,6 +49,13 @@ namespace Scratch {
 			return false;
 		}
 
+		public Boolean checkMineCollision(Item mine){
+			if (mine.BoundingBox.Intersects(this.BoundingBox) || this.BoundingBox.Intersects(mine.BoundingBox)){
+				return true;
+			}
+			return false;
+		}
+
 		public static void LoadContent(ContentManager Content, Random rnd, List<Enemy> zombies) {
 			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
 			for (int i = 0; i < 1; i++) {

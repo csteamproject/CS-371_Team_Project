@@ -12,6 +12,7 @@ namespace Scratch {
 		public bool isVisible = true;
 		Texture2D tex;
 		public int itemId;
+		public bool combined = false;
 
 		public Boolean checkCollision(Player player){
 			if (player.BoundingBox.Intersects(this.BoundingBox) || this.BoundingBox.Intersects(player.BoundingBox)){
@@ -22,13 +23,13 @@ namespace Scratch {
 			return false;
 		}
 
-		public Item( Texture2D texture, int row, int column ) : base(texture, row, column) {
+		public Item( Texture2D texture, int row, int column, int id ) : base(texture, row, column) {
+			itemId = id;
 		}
 		public void initialize( Vector2 ePos ) {
 			pos.X = ePos.X;
 			pos.Y = ePos.Y;
 			tex = Texture;
-			itemId = 0;
 		}
 
 		//tex.Width/2,//tex.Height/2);

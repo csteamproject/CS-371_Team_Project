@@ -14,6 +14,9 @@ namespace Scratch {
 		private List<Enemy> zombies = new List<Enemy>();
 		private int enemiesDefeated = 0;
 		Random rnd = new Random();
+		List<int> itemIdCountList = new List<int>();
+		Texture2D[] combinedItemTextureArray;
+		Texture2D[] itemTextureArrayTemp;
 		bool gameEnd = false;
 
 		private Player player;
@@ -28,6 +31,95 @@ namespace Scratch {
 		TileMap myMap = new TileMap(squaresDown, squaresAcross);
 
 		menuScreen gameScreen = new menuScreen();
+
+		public void CombineItems(){
+			if (Keyboard.GetState().IsKeyDown(Keys.C)){
+
+				if (itemIdCountList[0] != 0 && itemIdCountList[1] != 0){
+					Item combinedItem = new Item(combinedItemTextureArray[0], 1, 1, 4);
+					player.combinedInventoryList.Add(combinedItem);
+					int i = 0;
+					foreach (Item item in player.inventoryList){
+						if (item.itemId == 0){
+							player.inventoryList.RemoveAt(i);
+							break;
+						}
+						i++;
+					}
+					i = 0;
+					foreach (Item item in player.inventoryList){
+						if (item.itemId == 1){
+							player.inventoryList.RemoveAt(i);
+							break;
+						}
+						i++;
+					}
+
+				}
+
+				if (itemIdCountList[2] != 0 && itemIdCountList[3] != 0){
+
+					Item combinedItem = new Item(combinedItemTextureArray[0], 1, 1, 5);
+					player.combinedInventoryList.Add(combinedItem);
+					int i = 0;
+					foreach (Item item in player.inventoryList){
+						if (item.itemId == 2){
+							player.inventoryList.RemoveAt(i);
+							break;
+						}
+						i++;
+					}
+					i = 0;
+					foreach (Item item in player.inventoryList){
+						if (item.itemId == 3){
+							player.inventoryList.RemoveAt(i);
+							break;
+						}
+						i++;
+					}
+
+				}
+
+			}
+		}
+
+		public void UseFirstAid(){
+			if (Keyboard.GetState().IsKeyDown(Keys.F)){
+				int count = 0;
+				bool found = false;
+				foreach (Item item in player.combinedInventoryList){
+					if (item.itemId == 4){
+						found = true;
+						break;
+					}
+					else count++;
+				}
+
+				if (found){
+					player.health = player.health + 100;
+					player.combinedInventoryList.RemoveAt(count);
+				}
+			}
+		}
+
+		public void DropMine(){
+			if (Keyboard.GetState().IsKeyDown(Keys.E)){
+				int count = 0;
+				bool found = false;
+				foreach (Item item in player.combinedInventoryList){
+					if (item.itemId == 5){
+						found = true;
+						break;
+					}
+					else count++;
+				}
+
+				if (found){
+					items.PlayerDropItem(player.pos, 5);
+					player.combinedInventoryList.RemoveAt(count);
+				}
+			}
+		}
 
 		public Game1(){
 			graphics = new GraphicsDeviceManager(this);
@@ -49,13 +141,19 @@ namespace Scratch {
 			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("cloth"),
 				Content.Load<Texture2D>("ointment"), Content.Load<Texture2D>("gunpowder"),
 				Content.Load<Texture2D>("string") };
+			itemTextureArrayTemp = itemTextureArray;
+			Texture2D[] combinedItemTextureArrayTemp = { Content.Load<Texture2D>("cloth"),
+				Content.Load<Texture2D>("ointment") }; //change ointment to mine sprite
+			combinedItemTextureArray = combinedItemTextureArrayTemp;
 			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
 			Texture2D lightAura = Content.Load<Texture2D>(@"lightaura");
 			Texture2D bulletTexture = Content.Load<Texture2D>("projectile2");
 			myMap.lightAuracreate(Content);
 			items = new ItemsOnScreen();
 			player = new Player(playerTexture, 4, 4);
-			items.initialize(itemTextureArray);
+			items.initialize(itemTextureArray, combinedItemTextureArray);
+			foreach (Texture2D tex in items.textureArray)
+				itemIdCountList.Add(0);
 			bullet = new src.Bullet(bulletTexture);
 			player.Bulletcreate(bulletTexture);
 			player.Initialize();
@@ -98,6 +196,14 @@ namespace Scratch {
 								items.Update(gameTime, player.angle, myMap.camMoveVert, myMap.camMoveHoriz, player.spd, player.pos, enemyP, true);
 								enemiesDefeated++;
 							}
+
+						foreach (Item item in items.itemArray){
+							if (item.combined && item.isVisible && enemy.checkMineCollision(item)){
+								enemy.isVisible = false;
+								item.isVisible = false;
+								enemiesDefeated++;
+							}
+						}
 					}
 
 					if (enemiesDefeated >= Enemy.totalZombieCount - 1){
@@ -107,14 +213,19 @@ namespace Scratch {
 				}
 
 				foreach (Item itItem in items.itemArray){
-					if (itItem.checkCollision(player)){
+					if (!(itItem.combined) && itItem.isVisible && itItem.checkCollision(player)){
 						player.inventoryList.Add(itItem);
+						itemIdCountList[itItem.itemId] = itemIdCountList[itItem.itemId] + 1;
 						//item.pos.X = rnd.Next(500);
 						//item.pos.Y = rnd.Next(500);
 						itItem.isVisible = false;
 					}
 				}
+				
 
+				CombineItems();
+				UseFirstAid();
+				DropMine();
 				player.Update(gameTime, this.GraphicsDevice, myMap.camMoveVert, myMap.camMoveHoriz);
 
 

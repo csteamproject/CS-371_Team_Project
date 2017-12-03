@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Scratch {
 	public class ItemsOnScreen {
-		Texture2D[] textureArray;
+		public Texture2D[] textureArray;
 		public List<Item> itemArray;
 		int currentIndex = 0, idHold;
 		Random rnd = new Random();

@@ -10,7 +10,7 @@ namespace Scratch {
 		int speed { get; set; }
 		int health { get; set; }
 		public Vector2 ePos, eVel;
-		double a, b, yOffset = 52;
+		public double a, b, yOffset = 52;
 		public bool isVisible = true;
 		public static int totalZombieCount = 10;
 		private readonly int DEFAULT_WALK_START_FRAME = 5, DEFAULT_WALK_END_FRAME = 11,

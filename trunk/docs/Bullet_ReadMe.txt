@@ -36,4 +36,4 @@ Definitions, Glossary, Acronyms:
 	Don't assume your reader knows everything you're talking about. Clearly
 	define it here.
 
-	Bullet - object that will spwn at player position and travel in direction of player at that time.
+	Bullet - object that will spawn at player position and travel in direction of player at that time.

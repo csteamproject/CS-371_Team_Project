@@ -36,11 +36,11 @@ namespace Scratch {
 		}
 
 		public void LoadContent(ContentManager Content){
-			startButton = Content.Load<Texture2D>("start");
-			exitButton = Content.Load<Texture2D>("exit");
+			startButton = Content.Load<Texture2D>("menus/start");
+			exitButton = Content.Load<Texture2D>("menus/exit");
 			endButton = Content.Load<Texture2D>("menus/generatedtext");
-			resumeButton = Content.Load<Texture2D>("resume");
-			font = Content.Load<SpriteFont> ("font");
+			resumeButton = Content.Load<Texture2D>("menus/resume");
+			font = Content.Load<SpriteFont> ("sprites/font");
 			backGround = Content.Load<Song>("media/background");
 			MediaPlayer.Play(backGround);
 

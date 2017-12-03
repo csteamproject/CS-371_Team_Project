@@ -136,18 +136,18 @@ namespace Scratch {
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			gameScreen.LoadContent(Content);
-			Texture2D playerTexture = Content.Load<Texture2D>("player");
-			Texture2D itemTexture = Content.Load<Texture2D>("hammer1");
-			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("cloth"),
-				Content.Load<Texture2D>("ointment"), Content.Load<Texture2D>("gunpowder"),
-				Content.Load<Texture2D>("string") };
+			Texture2D playerTexture = Content.Load<Texture2D>("sprites/player");
+			Texture2D itemTexture = Content.Load<Texture2D>("items/hammer1");
+			Texture2D[] itemTextureArray = { Content.Load<Texture2D>("items/cloth"),
+				Content.Load<Texture2D>("items/ointment"), Content.Load<Texture2D>("items/gunpowder"),
+				Content.Load<Texture2D>("items/string") };
 			itemTextureArrayTemp = itemTextureArray;
-			Texture2D[] combinedItemTextureArrayTemp = { Content.Load<Texture2D>("cloth"),
-				Content.Load<Texture2D>("ointment") }; //change ointment to mine sprite
+			Texture2D[] combinedItemTextureArrayTemp = { Content.Load<Texture2D>("items/cloth"),
+				Content.Load<Texture2D>("items/mine") }; //change ointment to mine sprite
 			combinedItemTextureArray = combinedItemTextureArrayTemp;
-			Tile.TileSetTexture = Content.Load<Texture2D>(@"MapSprite2");
-			Texture2D lightAura = Content.Load<Texture2D>(@"lightaura");
-			Texture2D bulletTexture = Content.Load<Texture2D>("projectile2");
+			Tile.TileSetTexture = Content.Load<Texture2D>("sprites/MapSprite2");
+			Texture2D lightAura = Content.Load<Texture2D>("sprites/lightaura");
+			Texture2D bulletTexture = Content.Load<Texture2D>("items/projectile2");
 			myMap.lightAuracreate(Content);
 			items = new ItemsOnScreen();
 			player = new Player(playerTexture, 4, 4);

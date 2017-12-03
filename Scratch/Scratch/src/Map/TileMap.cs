@@ -30,7 +30,7 @@ namespace Scratch {
 
 
         public void lightAuracreate(ContentManager Content) {
-            lightAura = Content.Load<Texture2D>(@"lightaura");
+            lightAura = Content.Load<Texture2D>("sprites/lightaura");
         }
 
         public TileMap( int squaresDown, int squaresAcross) {

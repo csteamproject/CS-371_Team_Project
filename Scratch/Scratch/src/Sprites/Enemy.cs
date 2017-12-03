@@ -57,7 +57,7 @@ namespace Scratch {
 		}
 
 		public static void LoadContent(ContentManager Content, Random rnd, List<Enemy> zombies) {
-			Texture2D zombieTexture = Content.Load<Texture2D>("zombie_0");
+			Texture2D zombieTexture = Content.Load<Texture2D>("sprites/zombie_0");
 			for (int i = 0; i < 1; i++) {
 				zombies.Add(new Enemy(zombieTexture, 8, 36, rnd.Next(5, 50), 5, 90));
 				zombies[i].initialize(rnd);
@@ -66,7 +66,7 @@ namespace Scratch {
 
 		public static void randomSpawn( List<Enemy> zombies, Random rnd, ContentManager Content ) {
 			if (zombies.Count < totalZombieCount && rnd.Next(1, 100) == 1) {
-				zombies.Add(new Enemy(Content.Load<Texture2D>("zombie_0"), 8, 36, rnd.Next(5, 50), 5, 90));
+				zombies.Add(new Enemy(Content.Load<Texture2D>("sprites/zombie_0"), 8, 36, rnd.Next(5, 50), 5, 90));
 				int zombieCount = zombies.Count - 1;
 				zombies[zombieCount].initialize(rnd);
 			}

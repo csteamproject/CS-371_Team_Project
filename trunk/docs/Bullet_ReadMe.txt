@@ -4,12 +4,11 @@ Software Architecture Document (SAD) for Bullet class and functions
 System Overview: 
 	
 	The Bullet function is a class that will handle the template of a bullet object and use that template to create multiple instances 
-  within the player class. Note the bullet is independant of the player.
+  within the player class. Note the bullet object is independent of the player.
   
 Views:
 
-  The bullet design is a template design where a basic use is made for bullet and when invoked it will add more functionality depending on the 
-  situation.
+  The bullet design is a factory method design where a basic skeleton is made for bullet and when invoked it will add more functionality depending on the situation.
 
 	
 
@@ -31,9 +30,14 @@ Design Rationale:
   design to a more static one for speed.
 
 
-Definitions, Glossary, Acronyms:
+Definitions, Glossary, Acronyms, and Functions:
 
-	Don't assume your reader knows everything you're talking about. Clearly
-	define it here.
 
 	Bullet - object that will spawn at player position and travel in direction of player at that time.
+	
+	Shoot()- will create the bullet object at the time the keystoke defined (space by default) is activated.
+	
+	isVisible - a parameter used to keep track of the bullet object and if it is visible to the player.
+	
+	drawBullet() - function that will look through the list of bullets active and draw the bullets as nessary with updated prarmeters.
+	

@@ -1,23 +1,14 @@
 
-Software Architecture Document (SAD) for Map classes and functions
+Design Document for Map classes and functions
 
 
 System Overview: 
 	
 The map system is an isometric map designed to be the main and only map of the game. The system also handles the light aura around the player. It is comprised of 4 classes, a sprite sheet, and 1 light aura image.
 
-Views:
-
-The map design is a general design which can be implemented in a wide variety of games, as long as the game is 2d. 
-
 Software Units:
 
 The units where in integers and floats for the mathematical loops and for actually manipulating the sprites it was in Texture2D and spriteBatch units.  
-
-Analysis Data and Results:
-	
-The map class is probably the most demanding of the classes since it draws multiple sprites every frame. 
-
 	
 Design Rationale:
 	

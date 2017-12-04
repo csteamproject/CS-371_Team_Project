@@ -22,3 +22,9 @@ Definitions, Glossary, Acronyms, and Functions:
 	
 	drawBullet() - function that will look through the list of bullets active and draw the bullets as nessary with updated prarmeters.
 	
+	UpdateBullet()- the function that will continually update the positions of the bullets and is called from drawBullet to aid in 
+			updating the bullets in the object list.
+	Bulletcreate()- function that will pull the texture for the bullet texture to use for every bullet that is created in the
+			player class.
+	
+        Textureget()- unused function in the bullet class that was intended to allow swapping out of textures of the bullet sprite.

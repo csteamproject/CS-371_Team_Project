@@ -28,20 +28,20 @@ related and that the functionality of one relies on the other and vice versa.
 
 Classes and their duties:
 
-                     Items objects define all items in the game whether they be items on the screen (dropped by enemy or player) or items
-contained within inventory lists. This class gives each item with a particular texture a specific id to distinguish it from
-other items. This class handles the drawing of items on to the screen(with its inherited behavior) and it mantains the 
-relative position of the item from the player.
+ 	Items objects-  define all items in the game whether they be items on the screen (dropped by enemy or player) or items
+	contained within inventory lists. This class gives each item with a particular texture a specific id to distinguish it from
+	other items. This class handles the drawing of items on to the screen(with its inherited behavior) and it mantains the 
+	relative position of the item from the player.
 
-The ItemsOnScreen object typically adds new items to its list when an enemy is defeated. Each item that is on screen is
-maintained and updated. It will hold and update up to 20 items. After this, items are removed from the list each time a 
-new item is added. The updating of the ItemsOnScreen typically requires iterating through up to 20 items and updating each
-one.
+	ItemsOnScreen objects- typically adds new items to its list when an enemy is defeated. Each item that is on screen is
+	maintained and updated. It will hold and update up to 20 items. After this, items are removed from the list each time a 
+	new item is added. The updating of the ItemsOnScreen typically requires iterating through up to 20 items and updating each
+	one.
 
- Crafting-  related functions are invoked upon keystroke and typically add up to 2 items to inventory lists when used.
-For every item that is added to the combinedInventoryList two items are removed from inventoryList. The crafting as implemented
-iterates through the player inventory 4 times however when the crafting is invoked the inventory the inventory will typically
-shrink so these functions should not be very demanding.
+	 Crafting-  related functions are invoked upon keystroke and typically add up to 2 items to inventory lists when used.
+	For every item that is added to the combinedInventoryList two items are removed from inventoryList. The crafting as implemented
+	iterates through the player inventory 4 times however when the crafting is invoked the inventory the inventory will typically
+	shrink so these functions should not be very demanding.
 
 Definitions, Glossary, Acronyms:
 

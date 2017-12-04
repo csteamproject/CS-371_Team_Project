@@ -1,3 +1,6 @@
+# CS-371_Team_Project
+# Team members: Robert Dale, Alex Kurian, Mark Kircher, Christian McGovern, Victor Lozya 
+
 The Cs-371 Team Project repo has a main folder,scratch, that is the project root folder.
 Inside the scratch root folder is our visual studio solutions file and the scratch files.
 Within the scratch files is our visual studio/monogame libraries and further folders.

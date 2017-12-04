@@ -3,7 +3,7 @@ Design Document for Bullet class and functions
 
 System Overview: 
 	
-	The Bullet function is a class that will handle the template of a bullet object and use that template to create multiple instances 
+  The Bullet function is a class that will handle the template of a bullet object and use that template to create multiple instances 
   within the player class. Note the bullet object is independent of the player.
   
 Design Rationale:

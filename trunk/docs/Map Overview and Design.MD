@@ -22,6 +22,6 @@ Classes and their duties:
 
 Definitions, Glossary, Acronyms:
 
-light aura - the circle of visibility around the player, the rest is dimmed to simulate darkness around the player. 
+	light aura - the circle of visibility around the player, the rest is dimmed to simulate darkness around the player. 
 
-sprite sheet - a sheet with different "images" that are used in the map (trees, rocks, etc.)
+	sprite sheet - a sheet with different "images" that are used in the map (trees, rocks, etc.)

@@ -12,10 +12,10 @@ To use the code we have developed here, you must first install MonoGame which ca
 and it would be helpful to use visual studio if on a microsoft machine. If not on a Microsoft machine, our project will still fully
 work in the MonoGame IDE. 
 
-Once MonoGame is installed, and the repo is cloned, navigate to the .sln file to open our projects solution in the IDE of your choosing (either MonoGame or VisualStudio)
+Once MonoGame is installed, and the repo is cloned, navigate to the .sln file to open our projects solution in the IDE of your choosing (either MonoGame or VisualStudio) to use the game in debug or to modify the codes. Otherwise navigate to the x86/x64 file and then to release to find our Scratch.exe that will run in Windows.
 
 To play the game either hit start in the MonoGame IDE or run in VisualStudio.
 
-All supporting files and documents when pulled from this repo are usable at run time, no futher instlations required.
+All supporting files and documents when pulled from this repo are usable at run time, no further installations required.
 
 For further development questions or bug reports post on the Discord Chat.

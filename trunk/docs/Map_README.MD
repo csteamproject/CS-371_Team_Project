@@ -25,13 +25,14 @@ Every game requires a map, however I went with a isometric map beacause I think 
 
 Classes and their duties: 
 
- Camera - a simple instantiater for the map camera 
- MapCell - Instantiates the different tile types (Topper, Base, Height, etc)
- Tile - creates the base tiles for the map
- TileMap - the main map class, where most of the work is done, this class draws all the tiles to the screen along with the light aura
- and camera 
+ 	Camera - a simple instantiater for the map camera 
+ 
+	MapCell - Instantiates the different tile types (Topper, Base, Height, etc)
+ 
+ 	Tile - creates the base tiles for the map
+ 
+ 	TileMap - the main map class, where most of the work is done, this class draws all the tiles to the screen along with 	the light aura and camera 
 
-	
 Definitions, Glossary, Acronyms:
 
 light aura - the circle of visibility around the player, the rest is dimmed to simulate darkness around the player. 

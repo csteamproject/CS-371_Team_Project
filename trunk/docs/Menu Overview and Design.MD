@@ -1,4 +1,4 @@
-﻿Documentation for menu class
+Design Document for menu classes and functions
 
 System overview:
 menuScreen.cs is composed of gamestates startmenu, endmenu, playing, and paused. It is used to determine what exactly to draw onto

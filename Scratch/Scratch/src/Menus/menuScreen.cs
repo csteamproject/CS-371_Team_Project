@@ -90,7 +90,7 @@ namespace Scratch {
 			graphics.GraphicsDevice.Clear(Color.Black);
 			spriteBatch.Draw(endButton, endButtonPos, Color.White);
 			string text = "Push enter to play\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\nr to drop mine\np to pause\nspace to fire bullet\n";
-			spriteBatch.DrawString (font, text, fontPos, Color.Black);
+			spriteBatch.DrawString (font, text, fontPos, Color.Red);
 		}
 	}
 }

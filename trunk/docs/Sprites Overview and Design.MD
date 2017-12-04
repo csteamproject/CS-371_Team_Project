@@ -7,8 +7,6 @@ This system handles various animated and non-animated sprites of a larger system
 
 Design Rationale:
 
-Classes and their duties--
-
 AnimatedSprites:
 
         The Animated Sprites class builds the start of an animation process when given a sprite sheet with its rows and columns.

@@ -18,7 +18,7 @@ object which plays music in the background and is intended to make the game a li
 
 Classes and their duties: 
                           
-     Initialize- In the initialize method all the positions for the images and text are initialized as well as the gamestate which is initialized to startMenu. 
+    Initialize- In the initialize method all the positions for the images and text are initialized as well as the gamestate which is initialized to startMenu. 
 
     LoadContent- The load content method is used to load all the media being used through the content manager. 
 

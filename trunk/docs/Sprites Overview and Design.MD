@@ -1,4 +1,4 @@
-Software Architecture Document (SAD) for AnimatedSprites, Player, and Enemy classes
+Design Document for Sprite classes and functions
 
 System Overview:
 
@@ -7,7 +7,9 @@ This system handles various animated and non-animated sprites of a larger system
 
 Design Rationale:
 
-Classes and their duties--AnimatedSprites:
+Classes and their duties--
+
+AnimatedSprites:
 
         The Animated Sprites class builds the start of an animation process when given a sprite sheet with its rows and columns.
         Because Animations continuously progressed and the player would stop moving but animations would continue, some public variables           were necessary to control the animations. 

@@ -26,4 +26,4 @@ Classes and their duties:
 
     Draw methods- There are 3 draw methods one for start menu, end menu, and resume menu. Each of
     these use a graphicsdevicemanager and spritebatch as parameters. The graphicsdevicemanager is used to clear the background and make
-     it a solid color. The spritebatch is used to draw the images and the text.  
+    it a solid color. The spritebatch is used to draw the images and the text.  

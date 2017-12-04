@@ -6,8 +6,9 @@ This system handles various animated and non-animated sprites of a larger system
 
 
 Design Rationale:
+
    The Animated Sprites class builds the start of an animation process when given a sprite sheet with its rows and columns.
-   Because Animations continuously progressed and the player would stop moving but animations would continue, some public variables            were necessary to control the animations. Different start and stop frames can be set using startFrame and endFrame. stopFrame is used when the player stops moving and keeps the frame steady at the area where the stop occurred. FrameReset is used for enemies, when they collide with the player they run a chomp animation that needs to reset back to default walking afterwards.
+   Because Animations continuously progressed and the player would stop moving but animations would continue, some public variables            were necessary to control the animations. Different start and stop frames can be set using startFrame and endFrame. stopFrame is used   when the player stops moving and keeps the frame steady at the area where the stop occurred. FrameReset is used for enemies, when they collide with the player they run a chomp animation that needs to reset back to default walking afterwards.
 
 Update:
          

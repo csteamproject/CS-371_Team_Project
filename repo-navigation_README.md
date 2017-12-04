@@ -5,6 +5,9 @@ The content folder holds our icon images for the sprites as well as sound clips 
 The scr holds our source code for the classes of the game.
 And the x86/x64 holds our builds for the exe file.
 
+If you would just like to play our game, download the Release folder and run the Scratch.exe file
+
+
 In our src file is our class files and they will be contained in folders per content they cover.
 
 

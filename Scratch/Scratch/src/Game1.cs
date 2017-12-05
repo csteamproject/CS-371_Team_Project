@@ -127,8 +127,6 @@ namespace Scratch {
 					if (!(itItem.combined) && itItem.isVisible && itItem.checkCollision(player)){
 						player.inventoryList.Add(itItem);
 						itemIdCountList[itItem.itemId] = itemIdCountList[itItem.itemId] + 1;
-						//item.pos.X = rnd.Next(500);
-						//item.pos.Y = rnd.Next(500);
 						itItem.isVisible = false;
 					}
 				}
@@ -172,13 +170,3 @@ namespace Scratch {
 		}
 	}
 }
-
-// BoundingBox test code
-//Texture2D rect = new Texture2D(graphics.GraphicsDevice, player.BoundingBox.Width, player.BoundingBox.Height);
-
-//Color[] data = new Color[player.BoundingBox.Width * player.BoundingBox.Height];
-//				for (int i = 0; i<data.Length; ++i) data[i] = Color.Chocolate;
-//				rect.SetData(data);
-
-//				Vector2 coor = new Vector2(player.BoundingBox.X, player.BoundingBox.Y);
-//spriteBatch.Draw(rect, coor, Color.White);

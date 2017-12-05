@@ -5,6 +5,7 @@
  * columns can be specified for spritesheets using public variables row
  * and column.
 */
+
 using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;

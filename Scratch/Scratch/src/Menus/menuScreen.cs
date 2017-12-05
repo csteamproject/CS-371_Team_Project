@@ -87,21 +87,21 @@ namespace Scratch {
 		public void StartDraw(GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
 			graphics.GraphicsDevice.Clear(Color.Black);
 			spriteBatch.Draw(startButton, startButtonPos, Color.White);
-			string text = "Push enter to play\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\nr to drop mine\np to pause\nspace to fire bullet\n";
+			string text = "Push enter to play\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\ne to drop mine\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Red);
 		}
 
 		public void ResumeDraw (GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
 			graphics.GraphicsDevice.Clear (Color.Black);
 			spriteBatch.Draw (resumeButton, resumeButtonPos, Color.White);
-			string text = "Push r to resume\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\nr to drop mine\np to pause\nspace to fire bullet\n";
+			string text = "Push r to resume\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\ne to drop mine\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Red);
 		}
 
 		public void EndDraw(GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
 			graphics.GraphicsDevice.Clear(Color.Black);
 			spriteBatch.Draw(endButton, endButtonPos, Color.White);
-			string text = "Push enter to play\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\nr to drop mine\np to pause\nspace to fire bullet\n";
+			string text = "Push enter to play\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\ne to drop mine\np to pause\nspace to fire bullet\n";
 			spriteBatch.DrawString (font, text, fontPos, Color.Red);
 		}
 	}

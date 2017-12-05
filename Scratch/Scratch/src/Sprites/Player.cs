@@ -2,7 +2,8 @@
 * Player.cs
 * The purpose of this class is to generate attributes for the player in the game.
 * Player.cs inherits from AnimatedSprite.cs to build a working sprite animation.
-* This class also sets up the keyboard functionality for W, A, S, and D keys.
+* This class sets up the keyboard functionality for W, A, S, and D keys as well
+* as handles the creation of Bullet objects for the player use for Spacebar key.
 */
 
 using System;

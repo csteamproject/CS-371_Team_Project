@@ -33,24 +33,46 @@ namespace Scratch {
         public float bulletDelay;
         public List<src.Bullet> bulletList;
 
-		//tex.Width,//tex.Height);
+		//bounding box for player
         public Rectangle BoundingBox {get {return new Rectangle((int)pos.X+5,(int)pos.Y,40,50);}}
 
+		/*
+		 * Description: Constructor for Player object.
+ 		 * Pre-Conditions: Must be passed texture, and information
+ 		 * for animated sprite.
+		 * Post-Conditions: Player object created.
+		*/
 		public Player( Texture2D texture, int row, int column ) : base(texture, row, column) {
 			tex = texture;
             bulletList = new List<src.Bullet>();
             bulletDelay = 20;
         }
 
+		/*
+		 * Description: Sets the texture for a Bullet object
+ 		 * Pre-Conditions: Must be passed texture.
+		 * Post-Conditions: Bullet texture set
+		*/
         public void Bulletcreate(Texture2D texture){
             bulletTexture = texture;
         }
 
+		/*
+		 * Description: Draws all bullets to the screen.
+ 		 * Pre-Conditions: Must be passed a SpriteBatch object
+		 * Post-Conditions: Each bullet in the list drawn to screen.
+		*/
         public void DrawBullet(SpriteBatch spriteBatch){
             foreach (src.Bullet b in bulletList)
                 b.Draw(spriteBatch);
         }
 
+		/*
+		 * Description: Initializes player velocity, position, inventory, combined
+		 * inventory, and crafting object.
+ 		 * Pre-Conditions: Player object must first be inialized.
+		 * Post-Conditions: Player values intialized and/or set.
+		*/
         public void Initialize() {
 			vel = new Vector2(0, 0);
 			pos = new Vector2(this.tex.Width/2, this.tex.Height/2); //possible fix to the player position box
@@ -59,10 +81,19 @@ namespace Scratch {
 			crafting = new Crafting();
 		}
 
+		/*
+		 * Description: Updates player object position and manages
+		 * boundary collision and camera movement.
+ 		 * Pre-Conditions: Must be passed as GameTime object, a 
+ 		 * GraphicsDevice object, and camera movement booleans.
+		 * Post-Conditions: Player position and camera position updated
+		 * based on user input.
+		*/
 		public void Update( GameTime gameTime, GraphicsDevice graphDev, bool vert, bool horiz ) {
 
 			KeyboardState keys = Keyboard.GetState(); ;
 
+			//sets player angle based on user input
 			this.stopFrame = 1;
 			angle = null;
 			if (keys.IsKeyDown(Keys.D)) {
@@ -81,13 +112,16 @@ namespace Scratch {
 				this.stopFrame = 0;
 			}
 
+			//sets player velocity based on angle
 			if (angle.HasValue)
 				vel = new Vector2((float)Math.Cos((double)angle) * spd, (float)Math.Sin((double)angle) * spd);
 			else
 				vel = new Vector2(0, 0);
 
+			//sets new position based on velocity
 			pos = Vector2.Add(pos, Vector2.Multiply(vel, (float)gameTime.ElapsedGameTime.TotalSeconds));
 
+			//boundary of screen and camera movement checks
 			if (horiz == false) {
 				if (pos.X + tex.Width > width)
 					pos.X = width - tex.Width;
@@ -126,7 +160,12 @@ namespace Scratch {
             base.Update(gameTime);
 		}
 
-        //shooting method
+        /*
+		 * Description: Allows for bullet shooting.
+ 		 * Pre-Conditions: Must be passed player angle.
+		 * Post-Conditions: New bullet added to bullet list
+		 * and it shot in the direction of player.
+		*/
         public void shoot(float? angle){
 
             if (bulletDelay >= 0)
@@ -149,7 +188,14 @@ namespace Scratch {
                 bulletDelay = 20;
         }
 
-        //update bullet
+        /*
+         * Description: Updates Bullet objects in the bullet list.
+         * Updates position and removes if they have existed for
+         * a certain amount of time.
+ 		 * Pre-Conditions: Must be passed player angle.
+		 * Post-Conditions: The position of bullets in the list are 
+		 * updated and removes bullets based on time they have existed.
+		*/
         public void UpdateBullet(float? angle){
 			
             //for each bullet in bullet list update pos and do things

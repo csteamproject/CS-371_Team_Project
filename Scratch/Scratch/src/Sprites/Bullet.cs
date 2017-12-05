@@ -1,4 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*
+* Bullet.cs
+* The purpose of this class is to generate attributes for bullets in the game.
+* This class allows for contruction and drawing of Bullet object.
+*/
+
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +26,10 @@ namespace Scratch.src{
         public float speed;
         public float? angle;
 
+		//bounding box for Bullet
 		public Rectangle BoundingBox { get { return new Rectangle((int)position.X + 10, (int)position.Y + 10, 10, 10); } }
 
-        //contructorrr
+        //contructor
         public Bullet(Texture2D newtexture){
             speed = 10;
             Texture = newtexture;

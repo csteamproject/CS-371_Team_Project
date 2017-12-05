@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+* Game1.cs
+* The purpose of this class is to generate attributes for the entire game.
+* A Game1 object is created and then this class runs the game loop. All 
+* objects in the game are created here and all actions that occur in the 
+* game are called from here.
+* The update and draw methods are run repeated in a loop to produce the 
+* output of the game.
+*/
+
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -32,17 +42,34 @@ namespace Scratch {
 
 		menuScreen gameScreen = new menuScreen();
 
+		/*
+		 * Description: Constructor for Game1 object.
+ 		 * Pre-Conditions: None.
+		 * Post-Conditions: GraphicsDeviceManager object created and Content root set
+		*/
 		public Game1(){
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 		}
 
+		/*
+		 * Description: Initializes Game1 object and menuscreen object.
+ 		 * Pre-Conditions: Game1 object should exist.
+		 * Post-Conditions: Game1 and menuscreen are initalized.
+		*/
 		protected override void Initialize(){
 			//TODO: Add your initialization logic here
 			gameScreen.Initialize(graphics);
 			base.Initialize();
 		}
 
+		/*
+		 * Description: Loads all content to be displayed in the game
+		 * and initalizes game objects.
+ 		 * Pre-Conditions: Game objects and texture arrays should exists.
+		 * Post-Conditions: Content loaded into texture arrays and game objects
+		 * intialized
+		*/
 		protected override void LoadContent(){
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -71,6 +98,13 @@ namespace Scratch {
 			Enemy.LoadContent(Content, rnd, zombies);
 		}
 
+		/*
+		 * Description: Updates the whole game. Is ran in a loop.
+ 		 * Pre-Conditions: Must be passed GameTime object and all previous methods should be run before 
+ 		 * the first call of update.
+		 * Post-Conditions: All game objects are updated, collisions are checked for, and player input
+		 * actions are performed here.
+		*/
 		protected override void Update(GameTime gameTime){
 
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -141,6 +175,12 @@ namespace Scratch {
 			}
 		}
 
+		/*
+		 * Description: Draws all game objects to the screen and handles start screen and 
+		 * end screen drawing. Is run in a loop.
+ 		 * Pre-Conditions: GameTime object must be passed and should be run after update.
+		 * Post-Conditions: All objects are redrawn to screen or screens are redrawn.
+		*/
 		protected override void Draw(GameTime gameTime){
 			spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
 			if (gameScreen.gameState == menuScreen.GameState.StartMenu){

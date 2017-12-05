@@ -28,6 +28,9 @@ namespace Scratch {
 		Texture2D[] combinedItemTextureArray;
 		Texture2D[] itemTextureArrayTemp;
 		bool gameEnd = false;
+		private Vector2 fontPos;
+		private Vector2 fontPos2;
+
 
 		private Player player;
 		private ItemsOnScreen items;
@@ -59,6 +62,8 @@ namespace Scratch {
 		*/
 		protected override void Initialize(){
 			//TODO: Add your initialization logic here
+			fontPos = new Vector2 (10, 10);
+			fontPos2 = new Vector2 (15, 15);
 			gameScreen.Initialize(graphics);
 			base.Initialize();
 		}
@@ -204,7 +209,11 @@ namespace Scratch {
 				player.DrawBullet(spriteBatch);
 				base.Draw(gameTime);
 
+				//try to display health and score
+				//spriteBatch.DrawString (gameScreen.font, "Score " + enemiesDefeated.ToString(), fontPos, Color.White);
+				//spriteBatch.DrawString (gameScreen.font, "Health " + player.health.ToString (), fontPos2, Color.White);
 
+					
 			}
 			spriteBatch.End();
 		}

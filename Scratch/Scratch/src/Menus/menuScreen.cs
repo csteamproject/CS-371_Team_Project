@@ -19,7 +19,7 @@ namespace Scratch {
 		private Vector2 fontPos;
 
 		//font and media used 
-		private SpriteFont font;
+		public SpriteFont font;
 		private Song backGround;
 
 		//create different gamestates 

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * This class is meant to handle all the game states 
+ * and determine what exactly to draw to the screen
+ * it uses texture2D to create buttons and vector2 for position
+ * There are 4 main game states which the game can be in
+ * Each of these states will have a particular screen drawn 
+ */
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;

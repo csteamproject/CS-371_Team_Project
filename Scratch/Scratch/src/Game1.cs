@@ -28,8 +28,7 @@ namespace Scratch {
 		Texture2D[] combinedItemTextureArray;
 		Texture2D[] itemTextureArrayTemp;
 		bool gameEnd = false;
-		private Vector2 fontPos;
-		private Vector2 fontPos2;
+
 
 
 		private Player player;
@@ -62,8 +61,6 @@ namespace Scratch {
 		*/
 		protected override void Initialize(){
 			//TODO: Add your initialization logic here
-			fontPos = new Vector2 (10, 10);
-			fontPos2 = new Vector2 (15, 15);
 			gameScreen.Initialize(graphics);
 			base.Initialize();
 		}
@@ -193,6 +190,7 @@ namespace Scratch {
 			}
 			else if (gameScreen.gameState == menuScreen.GameState.EndMenu || gameEnd){
 				gameScreen.EndDraw(graphics, spriteBatch);
+				spriteBatch.DrawString (gameScreen.font, "Total Score " + enemiesDefeated.ToString (), gameScreen.fontPos3, Color.Red);
 			}
 			else{
 				if (gameScreen.gameState == menuScreen.GameState.Paused){
@@ -210,8 +208,8 @@ namespace Scratch {
 				base.Draw(gameTime);
 
 				//try to display health and score
-				//spriteBatch.DrawString (gameScreen.font, "Score " + enemiesDefeated.ToString(), fontPos, Color.White);
-				//spriteBatch.DrawString (gameScreen.font, "Health " + player.health.ToString (), fontPos2, Color.White);
+				spriteBatch.DrawString (gameScreen.font, "Score " + enemiesDefeated.ToString (), gameScreen.fontPos, Color.White);
+				spriteBatch.DrawString (gameScreen.font, "Health " + player.health.ToString (), gameScreen.fontPos2, Color.White);
 
 					
 			}

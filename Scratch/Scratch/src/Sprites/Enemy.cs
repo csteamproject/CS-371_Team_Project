@@ -97,7 +97,7 @@ namespace Scratch {
 		*/
 		public static void LoadContent(ContentManager Content, Random rnd, List<Enemy> zombies) {
 			Texture2D zombieTexture = Content.Load<Texture2D>("sprites/zombie_0");
-			for (int i = 0; i < 1; i++) {
+			for (int i = 0; i < 10; i++) {
 				zombies.Add(new Enemy(zombieTexture, 8, 36, rnd.Next(5, 50), 5, 90));
 				zombies[i].initialize(rnd);
 			}

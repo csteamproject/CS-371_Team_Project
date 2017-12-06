@@ -23,7 +23,10 @@ namespace Scratch {
 		private Vector2 startButtonPos;
 		private Vector2 endButtonPos;
 		private Vector2 resumeButtonPos;
-		private Vector2 fontPos;
+		public Vector2 fontPos;
+		public Vector2 fontPos2;
+		public Vector2 fontPos3;
+		public Vector2 fontPos4;
 
 		//font and media used 
 		public SpriteFont font;
@@ -46,6 +49,10 @@ namespace Scratch {
 			resumeButtonPos = new Vector2((graphics.GraphicsDevice.Viewport.Width / 2), 100);
 			fontPos = new Vector2 (10, 10); 
 			gameState = GameState.StartMenu;
+			fontPos = new Vector2 (10, 10);
+			fontPos2 = new Vector2 (20, 20);
+			fontPos3 = new Vector2 (400, 400);
+			fontPos4 = new Vector2 (20, 40);
 		}
 
 		/**
@@ -61,7 +68,10 @@ namespace Scratch {
 			MediaPlayer.Play(backGround);//starts the song 
 
 		}
-		//determine the games states from user input 
+		/*determine the games states from user input
+		 * pre-condition- game must be in a current game state
+		 * post-condition - game will change to gamestate depending on user input
+		 */
 		public void Update(){
 			KeyboardState keys = Keyboard.GetState();
 
@@ -71,7 +81,6 @@ namespace Scratch {
 				}
 			} else if (gameState == GameState.EndMenu) {
 				if (keys.IsKeyDown (Keys.Enter)) {
-					//player.lives = 3;
 					gameState = GameState.Playing;
 				}
 			} else if (gameState == GameState.Paused) {
@@ -89,7 +98,10 @@ namespace Scratch {
 		/**
 		 * @param- graphics, spritebatch
 		 * graphics is used to clear the background of the window and set to black
-		 * spritebatch is used to draw the buttons and string 
+		 * spritebatch is used to draw the buttons and strings
+		 * pre-condition- game state must be set to current game screen either
+		 * start, paused for resume, or end for end draw
+		 * post-condition-will draw the game screen according to the current gamestate 
 		 */
 		public void StartDraw(GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
 			graphics.GraphicsDevice.Clear(Color.Black);
@@ -99,10 +111,11 @@ namespace Scratch {
 		}
 
 		public void ResumeDraw (GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
-			graphics.GraphicsDevice.Clear (Color.Black);
+			graphics.GraphicsDevice.Clear (Color.Red);
 			spriteBatch.Draw (resumeButton, resumeButtonPos, Color.White);
 			string text = "Push r to resume\n(a-s-w-d) player movement\nc to combine items in inventory \nf to use first aid\ne to drop mine\np to pause\nspace to fire bullet\n";
-			spriteBatch.DrawString (font, text, fontPos, Color.Red);
+			spriteBatch.DrawString (font, text, fontPos4, Color.Black);
+
 		}
 
 		public void EndDraw(GraphicsDeviceManager graphics, SpriteBatch spriteBatch) {
